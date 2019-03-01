@@ -1,0 +1,83 @@
+body {
+    font-family: Robot
+}
+
+.container {
+    margin: 80px auto;
+    width: 80%;
+}
+
+.container-titulo {
+    display: block;
+    width: 100%;
+    text-align: center
+}
+
+.container-hd__descricao-situacao,
+.container-unidfita__descricao-situacao {
+    display: flex;
+    margin: 10px 13px;
+}
+
+.container-hd__situação,
+.container-unidfita__situação {
+    width: 20px;
+    height: 20px;
+    background: blue;
+    border-radius: 50px;
+    margin-left: 16px;
+}
+
+.container-hd__historico-troca,
+.container-hunidfita__historico-troca {
+    text-align: center;
+}
+
+.container-hd__unidades li {
+    display: inline-block;
+    margin: auto 3%;
+}
+
+.container-hd__unidade-coloridas {
+    padding: 0;
+}
+
+.container-hd__unidade-coloridas li div {
+    width: 20px;
+    height: 20px;
+    background: blue;
+    border-radius: 50px;
+}
+
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
