@@ -32,3 +32,7 @@ html {
     text-decoration: none;
     font-weight: bold;
 }
+
+.navbar li a:hover {
+    color: #ccc; 
+}
