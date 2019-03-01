@@ -1,0 +1,19 @@
+{
+  "name": "sif",
+  "version": "0.1.0",
+  "description": "webApp para gerenciar a saúde dos componentes de servidores e outros equipamentos de informática das VT's do TRT15",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "mongodb",
+    "nodejs",
+    "reactjs",
+    "redux",
+    "html",
+    "css"
+  ],
+  "author": "Tiago Emerick",
+  "license": "MIT"
+}
