@@ -1,4 +1,83 @@
 .container {
     margin: 80px auto;
     width: 50%;
+    font-family: 'Robot';
+}
+
+.title-vt {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.item label {
+    display: block;
+}
+
+.item input {
+    width: 90%;
+    height: 30px;
+    border: 0;
+    border-bottom: 1px solid blue;
+    margin: 4px auto 20px auto;
+}
+
+select {
+    width: 120px;
+    background: white;
+    border-radius: 3px;
+    color: green;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.item__hd {
+    text-align: center;
+}
+
+.item__hitorico-hd {
+    display: inline-block;
+}
+
+.item__hitorico-hd-situacao {
+    width: 55%
+}
+.item__hitorico-hd-date {
+    width: 20%;
+}
+.item__hitorico-hd-number {
+    width: 20%;
+}
+
+.item__list-ul,
+.item__list-sub-ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+}
+
+.item__list-ul li {
+    margin: 2px 4px;
+    padding: 0;
+}
+
+.item__list-sub-ul select {
+    width: 70px;
+}
+
+.button__edit {
+    margin: 16px auto;
+    padding: 10px;
+    background: green;
+    color: aliceblue;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.button__edit:hover {
+    color: green;
+    background: aliceblue;
+    cursor: pointer;
 }

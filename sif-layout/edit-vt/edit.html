@@ -23,8 +23,9 @@
 
     <main>
         <div class="container">
+            <h2 class="title-vt">Cadastro de VT</h2>
             <form>
-                <div class="">
+                <div class="item">
                     <label>Nome VT</label>
                     <input class="" type="text">
                 </div>
@@ -36,12 +37,12 @@
                         <option>NÃO</option>
                     </select>
                 </div>
-                <div class="">
+                <div class="item__hd">
                     <h3>HD's</h3>
-                    <div class="">
-                        <ul class="item__content-list">
+                    <div class="item__list">
+                        <ul class="item__list-ul">
                             <li>1
-                                <ul class="item__content-hd item__content-hd-color">
+                                <ul class="item__list-sub-ul">
                                     <li>
                                         <select id="migrada" class="">
                                             <option>Selecione</option>
@@ -54,7 +55,7 @@
                                 </ul>
                             </li>
                             <li>2
-                                <ul class="item__content-hd item__content-hd-color">
+                                <ul class="item__list-sub-ul">
                                     <li>
                                         <select id="migrada" class="">
                                             <option>Selecione</option>
@@ -67,7 +68,7 @@
                                 </ul>
                             </li>
                             <li>3
-                                <ul class="item__content-hd item__content-hd-color">
+                                <ul class="item__list-sub-ul">
                                     <li>
                                         <select id="migrada" class="">
                                             <option>Selecione</option>
@@ -80,7 +81,7 @@
                                 </ul>
                             </li>
                             <li>4
-                                <ul class="item__content-hd item__content-hd-color">
+                                <ul class="item__list-sub-ul">
                                     <li>
                                         <select id="migrada" class="">
                                             <option>Selecione</option>
@@ -93,7 +94,7 @@
                                 </ul>
                             </li>
                             <li>5
-                                <ul class="item__content-hd item__content-hd-color">
+                                <ul class="item__list-sub-ul">
                                     <li>
                                         <select id="migrada" class="">
                                             <option>Selecione</option>
@@ -106,7 +107,7 @@
                                 </ul>
                             </li>
                             <li>6
-                                <ul class="item__content-hd item__content-hd-color">
+                                <ul class="item__list-sub-ul">
                                     <li>
                                         <select id="migrada" class="">
                                             <option>Selecione</option>
@@ -119,7 +120,7 @@
                                 </ul>
                             </li>
                             <li>7
-                                <ul class="item__content-hd item__content-hd-color">
+                                <ul class="item__list-sub-ul">
                                     <li>
                                         <select id="migrada" class="">
                                             <option>Selecione</option>
@@ -132,7 +133,7 @@
                                 </ul>
                             </li>
                             <li>8
-                                <ul class="item__content-hd item__content-hd-color">
+                                <ul class="item__list-sub-ul">
                                     <li>
                                         <select id="migrada" class="">
                                             <option>Selecione</option>
@@ -147,23 +148,23 @@
                         </ul>
                     </div>
                 </div>
-                <div class="">
+                <div class="item">
                     <h3>Historico de situação HD's</h3>
-                    <div class="">
+                    <div class="item__hitorico-hd item__hitorico-hd-date">
                         <label>Data</label>
                         <input class="" type="date">
                     </div>
-                    <div class="">
+                    <div class="item__hitorico-hd item__hitorico-hd-number">
                         <label>Numero Baia</label>
                         <input class="" type="number">
                     </div>
-                    <div class="">
+                    <div class="item__hitorico-hd item__hitorico-hd-situacao">
                         <label>Situação</label>
                         <input class="" type="text">
                     </div>
                 </div>
 
-                <hr />
+                
 
                 <div class="">
                     <label>Situação Unidade de Fita Backup</label>
@@ -175,7 +176,7 @@
                         <option>TRANSITO</option>
                     </select>
                 </div>
-                <div class="">
+                <div class="item">
                     <h3>Historico de situação Unidade de Fitas</h3>
                     <div class="">
                         <label>Data</label>
@@ -186,6 +187,7 @@
                         <input class="" type="text">
                     </div>
                 </div>
+                <button class="button__edit">Cadastrar</button>
             </form>
         </div>
     </main>
