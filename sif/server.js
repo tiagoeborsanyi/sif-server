@@ -8,6 +8,8 @@ const vt = require('./routes/api/vt');
 
 const app = express();
 
+require('dotenv').condig();
+
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
