@@ -12,7 +12,7 @@ const VtSchema = new Schema({
       required: true
     },
     vtmigrada: {
-        type: Boolean,
+        type: String,
         required: true
     },
     hdsituacao: {
@@ -31,7 +31,7 @@ const VtSchema = new Schema({
     }],
     hdhistorico: [{
         date: {
-            type: Date.now()
+            type: Date
         },
         baia: {
             type: String,
@@ -46,7 +46,7 @@ const VtSchema = new Schema({
     },
     unidadefitahistorico: [{
         date: {
-            type: Date.now()
+            type: Date
         },
         observacao: {
             type: String
