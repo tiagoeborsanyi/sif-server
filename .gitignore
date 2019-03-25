@@ -1,3 +1,4 @@
 .env
 ./sif/node_modules
 ./sif-client/node_modules
+./sif-client/package-lock.json
