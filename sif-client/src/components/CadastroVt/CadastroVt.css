@@ -21,6 +21,10 @@
     margin: 4px auto 20px auto;
 }
 
+.item input:focus {
+    outline: 0;
+}
+
 select {
     width: 120px;
     background: white;
