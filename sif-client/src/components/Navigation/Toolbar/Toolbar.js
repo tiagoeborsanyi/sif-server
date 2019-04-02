@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import classes from './Toolbar.css';
 
@@ -7,9 +8,9 @@ const toolbar = (props) => (
     <header>
         <nav className={classes.navbar}>
             <ul>
-                <li className={classes.logo}><a href="#">Logo</a></li>
-                <li className={classes.links}><a href="#">ADD+</a></li>
-                <li className={classes.links}><a href="#">User</a></li>
+                <li className={classes.logo}><NavLink to="/">Logo</NavLink></li>
+                <li className={classes.links}><NavLink to="/cadastro-vt">ADD+</NavLink></li>
+                <li className={classes.links}><NavLink to="/user">User</NavLink></li>
             </ul>
         </nav>
     </header>
