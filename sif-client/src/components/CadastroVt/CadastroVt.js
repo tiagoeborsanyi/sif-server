@@ -18,6 +18,20 @@ const cadastrovt = (props) => (
                     <option>NÃO</option>
                 </select>
             </div>
+            <div className={classes.discos}>
+                <label className={classes.discos__600}>Disco de 600 baia 8?</label>
+                <select id="disco600">
+                    <option>Selecione</option>
+                    <option>SIM</option>
+                    <option>NÃO</option>
+                </select>
+                <label className={classes.discos__4}>Recolido os 4 discos?</label>
+                <select id="4discos">
+                    <option>Selecione</option>
+                    <option>SIM</option>
+                    <option>NÃO</option>
+                </select>
+            </div>
             <div className={classes.item__hd}>
                 <h3>HD's</h3>
                 <div className={classes.item__list}>
