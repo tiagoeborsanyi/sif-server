@@ -9,6 +9,8 @@ const cadastrovt = (props) => (
             <div className={classes.item}>
                 <label>Nome VT</label>
                 <input type="text" />
+                <label>Apelido VT</label>
+                <input type="text" />
             </div>
             <div>
                 <label>VT Migrada?</label>
@@ -25,13 +27,33 @@ const cadastrovt = (props) => (
                     <option>SIM</option>
                     <option>NÃO</option>
                 </select>
-                <label className={classes.discos__4}>Recolido os 4 discos?</label>
+                <label className={classes.discos__4}>Recolhido os 4 discos?</label>
                 <select id="4discos">
                     <option>Selecione</option>
                     <option>SIM</option>
                     <option>NÃO</option>
                 </select>
             </div>
+            <div className={classes.item}>
+                <h3>Chamado do Assyst de retirada dos discos</h3>
+                <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
+                    <label>Data</label>
+                    <input type="date" />
+                </div>
+                <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
+                    <label>Número Chamado</label>
+                    <input type="text" />
+                </div>
+                <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdSituacao}>
+                    <label>Observação</label>
+                    <input type="text" />
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <br />
+
             <div className={classes.item__hd}>
                 <h3>HD's</h3>
                 <div className={classes.item__list}>
@@ -144,13 +166,21 @@ const cadastrovt = (props) => (
                 </div>
             </div>
             <div className={classes.item}>
-                <h3>Historico de situação HD's</h3>
+                <h3>Disponível para retirada dos discos</h3>
+                <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
+                    <select id="retirada__discos">
+                        <option>Selecione</option>
+                        <option>SIM</option>
+                        <option>NÃO</option>
+                    </select>   
+                </div>
+                <h3>Histórico de situação HD's</h3>
                 <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
                     <label>Data</label>
                     <input type="date" />
                 </div>
                 <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
-                    <label>Numero Baia</label>
+                    <label>Número Baia</label>
                     <input type="number" />
                 </div>
                 <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdSituacao}>
@@ -159,20 +189,47 @@ const cadastrovt = (props) => (
                 </div>
             </div>
 
-            
+            <br />
+            <br />
+            <br />
 
-            <div>
-                <label>Situação Unidade de Fita Backup</label>
-                <select id="fitabackup">
-                    <option>Selecione</option>
-                    <option>OK</option>
-                    <option>QUEBRADA</option>
-                    <option>AGUARDANDO</option>
-                    <option>TRANSITO</option>
-                </select>
-            </div>
+            
             <div className={classes.item}>
-                <h3>Historico de situação Unidade de Fitas</h3>
+                <h3 className={classes.title__unidadefita}>Unidade de Fita</h3>
+                <h3>Histórico de situação unidade de fita</h3>
+                <div>
+                    <label>Situação unidade de fita</label>
+                    <select id="fitabackup">
+                        <option>Selecione</option>
+                        <option>OK</option>
+                        <option>QUEBRADA</option>
+                        <option>AGUARDANDO</option>
+                        <option>TRANSITO</option>
+                    </select>
+                </div>
+
+                <br />
+
+                <div className={classes.item}>
+                    <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
+                        <label>Data da migração</label>
+                        <input type="date" />
+                    </div>
+                    <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
+                        <label>Data de disponibilidade</label>
+                        <input type="date" />
+                    </div>
+                    <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
+                        <label>Unidade de fita retirada?</label>
+                        <select id="unidade__retirada">
+                            <option>Selecione</option>
+                            <option>SIM</option>
+                            <option>NÃO</option>
+                        </select>
+                    </div>
+                </div>
+                <br />
+                <h3>Histórico de troca de unidade de fita</h3>
                 <div>
                     <label>Data</label>
                     <input type="date" />

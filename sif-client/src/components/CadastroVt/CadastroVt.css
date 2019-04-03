@@ -47,6 +47,10 @@ select {
     margin: 2px 10px;
 }
 
+.title__unidadefita {
+    text-align: center;
+}
+
 .item__hd {
     text-align: center;
 }
