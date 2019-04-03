@@ -1,14 +1,12 @@
 import React from 'react';
 
 const select = (props) => (
-    <div>
-        <select className={props.classe}>
+        <select id={props.id}>
             <option>Selecione</option>
-            {props.options.map(opt => {
+            {props.options.map(opt => (
                 <option>{opt}</option>
-            })}
+            ))}
         </select>
-    </div>
 );
 
 export default select;

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './CadastroVt.css';
+import Select from  './UI/Select';
 
 const cadastrovt = (props) => (
     <div className={classes.container}>
@@ -13,26 +14,14 @@ const cadastrovt = (props) => (
                 <input type="text" />
             </div>
             <div>
-                <label>VT Migrada?</label>
-                <select id="migrada">
-                    <option>Selecione</option>
-                    <option>SIM</option>
-                    <option>NÃO</option>
-                </select>
+                <label className={classes.discos__600}>VT Migrada?</label>
+                <Select id="migrada" options={['SIM', 'NÃO']} />
             </div>
             <div className={classes.discos}>
                 <label className={classes.discos__600}>Disco de 600 baia 8?</label>
-                <select id="disco600">
-                    <option>Selecione</option>
-                    <option>SIM</option>
-                    <option>NÃO</option>
-                </select>
+                <Select id="disco600" options={['SIM', 'NÃO']} />
                 <label className={classes.discos__4}>Recolhido os 4 discos?</label>
-                <select id="4discos">
-                    <option>Selecione</option>
-                    <option>SIM</option>
-                    <option>NÃO</option>
-                </select>
+                <Select id="4discos" options={['SIM', 'NÃO']} />
             </div>
             <div className={classes.item}>
                 <h3>Chamado do Assyst de retirada dos discos</h3>
@@ -61,104 +50,56 @@ const cadastrovt = (props) => (
                         <li>1
                             <ul className={classes.item__listSubUl}>
                                 <li>
-                                    <select id="migrada">
-                                        <option>Selecione</option>
-                                        <option>OK</option>
-                                        <option>SMART</option>
-                                        <option>FAULT</option>
-                                        <option>NOT</option>
-                                    </select>
+                                    <Select id="disco1" options={['OK', 'SMART', 'FAULT', 'NOT']} />
                                 </li>
                             </ul>
                         </li>
                         <li>2
                             <ul className={classes.item__listSubUl}>
                                 <li>
-                                    <select id="migrada">
-                                        <option>Selecione</option>
-                                        <option>OK</option>
-                                        <option>SMART</option>
-                                        <option>FAULT</option>
-                                        <option>NOT</option>
-                                    </select>
+                                    <Select id="disco2" options={['OK', 'SMART', 'FAULT', 'NOT']} />
                                 </li>
                             </ul>
                         </li>
                         <li>3
                             <ul className={classes.item__listSubUl}>
                                 <li>
-                                    <select id="migrada">
-                                        <option>Selecione</option>
-                                        <option>OK</option>
-                                        <option>SMART</option>
-                                        <option>FAULT</option>
-                                        <option>NOT</option>
-                                    </select>
+                                    <Select id="disco3" options={['OK', 'SMART', 'FAULT', 'NOT']} />
                                 </li>
                             </ul>
                         </li>
                         <li>4
                             <ul className={classes.item__listSubUl}>
                                 <li>
-                                    <select id="migrada">
-                                        <option>Selecione</option>
-                                        <option>OK</option>
-                                        <option>SMART</option>
-                                        <option>FAULT</option>
-                                        <option>NOT</option>
-                                    </select>
+                                    <Select id="disco4" options={['OK', 'SMART', 'FAULT', 'NOT']} />
                                 </li>
                             </ul>
                         </li>
                         <li>5
                             <ul className={classes.item__listSubUl}>
                                 <li>
-                                    <select id="migrada">
-                                        <option>Selecione</option>
-                                        <option>OK</option>
-                                        <option>SMART</option>
-                                        <option>FAULT</option>
-                                        <option>NOT</option>
-                                    </select>
+                                    <Select id="disco5" options={['OK', 'SMART', 'FAULT', 'NOT']} />
                                 </li>
                             </ul>
                         </li>
                         <li>6
                             <ul className={classes.item__listSubUl}>
                                 <li>
-                                    <select id="migrada">
-                                        <option>Selecione</option>
-                                        <option>OK</option>
-                                        <option>SMART</option>
-                                        <option>FAULT</option>
-                                        <option>NOT</option>
-                                    </select>
+                                    <Select id="disco6" options={['OK', 'SMART', 'FAULT', 'NOT']} />
                                 </li>
                             </ul>
                         </li>
                         <li>7
                             <ul className={classes.item__listSubUl}>
                                 <li>
-                                    <select id="migrada">
-                                        <option>Selecione</option>
-                                        <option>OK</option>
-                                        <option>SMART</option>
-                                        <option>FAULT</option>
-                                        <option>NOT</option>
-                                    </select>
+                                    <Select id="disco7" options={['OK', 'SMART', 'FAULT', 'NOT']} />
                                 </li>
                             </ul>
                         </li>
                         <li>8
                             <ul className={classes.item__listSubUl}>
                                 <li>
-                                    <select id="migrada">
-                                        <option>Selecione</option>
-                                        <option>OK</option>
-                                        <option>SMART</option>
-                                        <option>FAULT</option>
-                                        <option>NOT</option>
-                                    </select>
+                                    <Select id="disco8" options={['OK', 'SMART', 'FAULT', 'NOT']} />
                                 </li>
                             </ul>
                         </li>
@@ -168,11 +109,7 @@ const cadastrovt = (props) => (
             <div className={classes.item}>
                 <h3>Disponível para retirada dos discos</h3>
                 <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
-                    <select id="retirada__discos">
-                        <option>Selecione</option>
-                        <option>SIM</option>
-                        <option>NÃO</option>
-                    </select>   
+                    <Select id="retirada_discos" options={['SIM', 'NÃO']} />   
                 </div>
                 <h3>Histórico de situação HD's</h3>
                 <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
@@ -199,13 +136,7 @@ const cadastrovt = (props) => (
                 <h3>Histórico de situação unidade de fita</h3>
                 <div>
                     <label>Situação unidade de fita</label>
-                    <select id="fitabackup">
-                        <option>Selecione</option>
-                        <option>OK</option>
-                        <option>QUEBRADA</option>
-                        <option>AGUARDANDO</option>
-                        <option>TRANSITO</option>
-                    </select>
+                    <Select id="retirada_discos" options={['OK', 'QUEBRADA', 'AGUARDANDO', 'TRANSITO']} />
                 </div>
 
                 <br />
@@ -221,11 +152,7 @@ const cadastrovt = (props) => (
                     </div>
                     <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
                         <label>Unidade de fita retirada?</label>
-                        <select id="unidade__retirada">
-                            <option>Selecione</option>
-                            <option>SIM</option>
-                            <option>NÃO</option>
-                        </select>
+                        <Select id="unidade_retirada" options={['SIM', 'NÃO']} />
                     </div>
                 </div>
                 <br />
