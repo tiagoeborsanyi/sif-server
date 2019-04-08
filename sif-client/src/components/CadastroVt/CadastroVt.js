@@ -10,15 +10,16 @@ class Cadastrovt extends Component {
     }
 
     render () {
+        console.log(this.props.apelido.valid)
         return (
             <div className={classes.container}>
                 <h2 className={classes.titleVt}>Cadastro de VT</h2>
-                <form>
+                <form onSubmit={this.props.cadastravt}>
                     <div className={classes.item}>
                         <label>Nome VT</label>
-                        <input type="text" name="name" value={this.props.name} onChange={this.props.changed} />
+                        <input className={(this.props.name.valid ? classes.valid : classes.invalid)} type="text" name="name" value={this.props.name.name} onChange={this.props.changed} />
                         <label>Apelido VT</label>
-                        <input type="text" name="apelido" value={this.props.apelido} onChange={this.props.changed} />
+                        <input className={(this.props.apelido.valid ? classes.valid : classes.invalid)} type="text" name="apelido" value={this.props.apelido.apelido} onChange={this.props.changed} />
                     </div>
                     <div>
                         <label className={classes.discos__600}>VT Migrada?</label>
@@ -34,15 +35,15 @@ class Cadastrovt extends Component {
                         <h3>Chamado do Assyst de retirada dos discos</h3>
                         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
                             <label>Data</label>
-                            <input type="date" />
+                            <input className={classes.valid} type="date" />
                         </div>
                         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
                             <label>Número Chamado</label>
-                            <input type="text" />
+                            <input className={classes.valid} type="text" />
                         </div>
                         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdSituacao}>
                             <label>Observação</label>
-                            <input type="text" />
+                            <input className={classes.valid} type="text" />
                         </div>
                     </div>
         
@@ -121,15 +122,15 @@ class Cadastrovt extends Component {
                         <h3>Histórico de situação HD's</h3>
                         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
                             <label>Data</label>
-                            <input type="date" />
+                            <input className={classes.valid} type="date" />
                         </div>
                         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
                             <label>Número Baia</label>
-                            <input type="number" />
+                            <input className={classes.valid} type="number" />
                         </div>
                         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdSituacao}>
                             <label>Situação</label>
-                            <input type="text" />
+                            <input className={classes.valid} type="text" />
                         </div>
                     </div>
         
@@ -151,11 +152,11 @@ class Cadastrovt extends Component {
                         <div className={classes.item}>
                             <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
                                 <label>Data da migração</label>
-                                <input type="date" />
+                                <input className={classes.valid} type="date" />
                             </div>
                             <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
                                 <label>Data de disponibilidade</label>
-                                <input type="date" />
+                                <input className={classes.valid} type="date" />
                             </div>
                             <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
                                 <label>Unidade de fita retirada?</label>
@@ -166,11 +167,11 @@ class Cadastrovt extends Component {
                         <h3>Histórico de troca de unidade de fita</h3>
                         <div>
                             <label>Data</label>
-                            <input type="date" />
+                            <input className={classes.valid} type="date" />
                         </div>
                         <div>
                             <label>Observação</label>
-                            <input type="text" />
+                            <input className={classes.valid} type="text" />
                         </div>
                     </div>
                     <button className={classes.button__edit}>Cadastrar</button>

@@ -13,12 +13,29 @@
     display: block;
 }
 
-.item input {
+/* .item input {
     width: 90%;
     height: 30px;
     border: 0;
-    border-bottom: 1px solid blue;
     margin: 4px auto 20px auto;
+    border-bottom: 1px solid blue;
+} */
+
+.valid {
+    width: 90%;
+    height: 30px;
+    border: 0;
+    margin: 4px auto 20px auto;
+    border-bottom: 1px solid blue;
+}
+
+.invalid {
+    width: 90%;
+    height: 30px;
+    border: 0;
+    margin: 4px auto 20px auto;
+    border-bottom: 1px solid red;
+    background: #ccc;
 }
 
 .item input:focus {

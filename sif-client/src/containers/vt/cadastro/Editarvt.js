@@ -7,8 +7,14 @@ class Editarvt extends Component {
 
     state = {
         cadastro: {
-            name: '',
-            apelido: ''
+            name: {
+                name: '',
+                valid: false
+            },
+            apelido: {
+                apelido: '',
+                valid: false
+            }
         }
     }
 
@@ -19,10 +25,16 @@ class Editarvt extends Component {
         let updateObjElement = {
             ...updateObjItem[event.target.name]
         }
-        updateObjElement = event.target.value;
-        updateObjItem[event.target.name] = updateObjElement; 
+        updateObjElement[event.target.name] = event.target.value;
+        updateObjElement[event.target.name].trim() !==  '' ? updateObjElement['valid'] = true : updateObjElement['valid'] = false;
+        updateObjItem[event.target.name] = updateObjElement;
         this.setState({cadastro: updateObjItem});
         console.log('event.target.value', updateObjItem);
+    }
+
+    cadastraVt = (event) => {
+        event.preventDefault();
+        console.log(this.state.cadastro);
     }
 
     render () {
@@ -30,7 +42,8 @@ class Editarvt extends Component {
             <CadastroVt
                 name={this.state.cadastro.name}
                 apelido={this.state.cadastro.apelido}
-                changed={(event) => this.changedItem(event)} />
+                changed={(event) => this.changedItem(event)}
+                cadastravt={this.cadastraVt} />
         );
     }
 }
