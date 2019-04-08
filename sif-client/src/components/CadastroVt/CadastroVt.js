@@ -24,6 +24,8 @@ class Cadastrovt extends Component {
                     <div>
                         <label className={classes.discos__600}>VT Migrada?</label>
                         <Select id="migrada" options={['SIM', 'NÃO']} />
+                        <label className={classes.discos__4}>Unidade de Fita no local?</label>
+                        <Select id="fitalocalidade" options={['SIM', 'NÃO']} />
                     </div>
                     <div className={classes.discos}>
                         <label className={classes.discos__600}>Disco de 600 baia 8?</label>
@@ -119,61 +121,11 @@ class Cadastrovt extends Component {
                         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
                             <Select id="retirada_discos" options={['SIM', 'NÃO']} />   
                         </div>
-                        <h3>Histórico de situação HD's</h3>
-                        <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
-                            <label>Data</label>
-                            <input className={classes.valid} type="date" />
-                        </div>
-                        <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
-                            <label>Número Baia</label>
-                            <input className={classes.valid} type="number" />
-                        </div>
-                        <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdSituacao}>
-                            <label>Situação</label>
-                            <input className={classes.valid} type="text" />
-                        </div>
+                        {/* aqui vai o codigo para historico de situação de HD's <HistoricoDiscos /> */}
                     </div>
         
                     <br />
-                    <br />
-                    <br />
-        
-                    
-                    <div className={classes.item}>
-                        <h3 className={classes.title__unidadefita}>Unidade de Fita</h3>
-                        <h3>Histórico de situação unidade de fita</h3>
-                        <div>
-                            <label>Situação unidade de fita</label>
-                            <Select id="retirada_discos" options={['OK', 'QUEBRADA', 'AGUARDANDO', 'TRANSITO']} />
-                        </div>
-        
-                        <br />
-        
-                        <div className={classes.item}>
-                            <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
-                                <label>Data da migração</label>
-                                <input className={classes.valid} type="date" />
-                            </div>
-                            <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdDate}>
-                                <label>Data de disponibilidade</label>
-                                <input className={classes.valid} type="date" />
-                            </div>
-                            <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
-                                <label>Unidade de fita retirada?</label>
-                                <Select id="unidade_retirada" options={['SIM', 'NÃO']} />
-                            </div>
-                        </div>
-                        <br />
-                        <h3>Histórico de troca de unidade de fita</h3>
-                        <div>
-                            <label>Data</label>
-                            <input className={classes.valid} type="date" />
-                        </div>
-                        <div>
-                            <label>Observação</label>
-                            <input className={classes.valid} type="text" />
-                        </div>
-                    </div>
+
                     <button className={classes.button__edit}>Cadastrar</button>
                 </form>
             </div>

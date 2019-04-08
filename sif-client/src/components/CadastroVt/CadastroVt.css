@@ -35,7 +35,7 @@
     border: 0;
     margin: 4px auto 20px auto;
     border-bottom: 1px solid red;
-    background: #ccc;
+    background: #f7fff7;
 }
 
 .item input:focus {
