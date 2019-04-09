@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import Layout from './hoc/Layout/Layout';
-import CadastroVt from './containers/vt/cadastro/Editarvt';
+import CadastroVt from './containers/vt/cadastro/Cadastrarvt';
 
 class App extends Component {
   render() {
