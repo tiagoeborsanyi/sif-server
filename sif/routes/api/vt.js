@@ -5,6 +5,8 @@ const passport = require('passport');
 // Load models
 const Vt = require('../../models/Vt');
 
+const validatevt = require('../../validation/vt');
+
 
 // @route   GET api/vt/test
 // @desc    Tests vt route
@@ -40,7 +42,15 @@ router.post(
       }
 
       const tempvt = {
-        
+        nomevt: req.body.name,
+        apelido: req.body.apelido,
+        vtmigrada: req.body.vtmigrada,
+        fitalocalidade: req.body.fitalocalidade,
+        disco600: req.body.disco600,
+        quatrodiscos: req.body.quatrodiscos,
+        chamadossystretiradadiscos: req.body.chamadossystretiradadiscos,
+        hds: req.body.hds,
+        disponivelretiradadisco: req.body.disponivelretiradadisco
       }
   
       const newvt = new vt(tempvt);

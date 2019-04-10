@@ -7,18 +7,40 @@ const VtSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
-    nome: {
+    nomevt: {
       type: String,
       required: true
+    },
+    apelido: {
+        type: String,
+        required: true
     },
     vtmigrada: {
         type: Boolean,
         required: true
     },
-    hdsituacao: {
-        type: String,
-        required: true
+    fitalocalidade: {
+        type: Boolean
     },
+    disco600: {
+        type: Boolean
+    },
+    quatrodiscos: {
+        type: Boolean
+    },
+    chamadossystretiradadiscos: [{
+        data: {
+            type: String,
+            required: true
+        },
+        numerochamado: {
+            type: String,
+            required: true
+        },
+        observacao: {
+            type: String
+        }
+    }],
     hds: [{
         baia: {
             type: String,
@@ -29,29 +51,45 @@ const VtSchema = new Schema({
             required: true
         }
     }],
-    hdhistorico: [{
-        date: {
-            type: Date
-        },
-        baia: {
-            type: String,
-        },
-        situacao: {
-            type: String
-        }
-    }],
-    fitabackupsituacao: {
-        type: String,
-        required: true
+    disponivelretiradadisco: {
+        type: Boolean
     },
-    unidadefitahistorico: [{
+    situacaofita: {
+        type: String
+    },
+    datamigracaofita: {
+        type: String
+    },
+    datadisponibilidadefita: {
+        type: String
+    },
+    fitaretirada: {
+        type: Boolean
+    },
+    historicotrocafita: [{
         date: {
             type: Date
         },
         observacao: {
             type: String
         }
-    }]
+    }],
+    historicosituacaohd: [{
+        date: {
+            type: Date,
+            required: true
+        },
+        baia: {
+            type: String,
+            required: true
+        },
+        observacao: {
+            type: String
+        }
+    }],
+    observacaovt: {
+        type: String
+    }    
   });
   
   module.exports = Vt = mongoose.model('Vts', VtSchema);
