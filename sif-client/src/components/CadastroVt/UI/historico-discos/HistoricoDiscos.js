@@ -13,7 +13,7 @@ const historicoDiscos = (props) => (
             <input className={classes.valid} type="number" />
         </div>
         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdSituacao}>
-            <label>Situação</label>
+            <label>Observação</label>
             <input className={classes.valid} type="text" />
         </div>
     </div>

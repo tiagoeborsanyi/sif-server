@@ -7,7 +7,7 @@ const historicoFitas = (props) => (
         <h3>Histórico de situação unidade de fita</h3>
         <div>
             <label>Situação unidade de fita</label>
-            <Select id="retirada_discos" options={['OK', 'QUEBRADA', 'AGUARDANDO', 'TRANSITO']} />
+            <Select id="situacao_fita" options={['OK', 'QUEBRADA', 'AGUARDANDO', 'TRANSITO']} />
         </div>
 
         <br />

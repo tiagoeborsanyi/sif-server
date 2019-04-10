@@ -17,13 +17,23 @@ class Cadastrovt extends Component {
                 <form onSubmit={this.props.cadastravt}>
                     <div className={classes.item}>
                         <label>Nome VT</label>
-                        <input className={(this.props.name.valid ? classes.valid : classes.invalid)} type="text" name="name" value={this.props.name.name} onChange={this.props.changed} />
+                        <input 
+                            className={(this.props.name.valid ? classes.valid : classes.invalid)} 
+                            type="text" 
+                            name="name" 
+                            value={this.props.name.name} 
+                            onChange={this.props.changed} />
                         <label>Apelido VT</label>
-                        <input className={(this.props.apelido.valid ? classes.valid : classes.invalid)} type="text" name="apelido" value={this.props.apelido.apelido} onChange={this.props.changed} />
+                        <input 
+                            className={(this.props.apelido.valid ? classes.valid : classes.invalid)} 
+                            type="text" 
+                            name="apelido" 
+                            value={this.props.apelido.apelido} 
+                            onChange={this.props.changed} />
                     </div>
                     <div>
                         <label className={classes.discos__600}>VT Migrada?</label>
-                        <Select id="migrada" options={['SIM', 'NÃO']} />
+                        <Select id="vtmigrada" options={['SIM', 'NÃO']} />
                         <label className={classes.discos__4}>Unidade de Fita no local?</label>
                         <Select id="fitalocalidade" options={['SIM', 'NÃO']} />
                     </div>

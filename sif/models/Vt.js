@@ -12,7 +12,7 @@ const VtSchema = new Schema({
       required: true
     },
     vtmigrada: {
-        type: String,
+        type: Boolean,
         required: true
     },
     hdsituacao: {
