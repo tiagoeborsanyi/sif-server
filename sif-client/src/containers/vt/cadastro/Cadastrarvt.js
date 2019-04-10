@@ -14,6 +14,60 @@ class Editarvt extends Component {
             apelido: {
                 apelido: '',
                 valid: false
+            },
+            vtmigrada: {
+                vtmigrada: false
+            },
+            fitalocalidade: {
+                fitalocalidade: false
+            },
+            disco600: {
+                disco600: false
+            },
+            quatrodiscos: {
+                quatrodiscos: false
+            },
+            chamadoassystretiradadiscos: {
+                data: '',
+                numerochamado: '',
+                observacao: ''
+            },
+            hds: [
+                {
+                    baia: '1',
+                    status: ''
+                },
+                {
+                    baia: '2',
+                    status: ''
+                },
+                {
+                    baia: '3',
+                    status: ''
+                },
+                {
+                    baia: '4',
+                    status: ''
+                },
+                {
+                    baia: '5',
+                    status: ''
+                },
+                {
+                    baia: '6',
+                    status: ''
+                },
+                {
+                    baia: '7',
+                    status: ''
+                },
+                {
+                    baia: '8',
+                    status: ''
+                }
+            ],
+            disponivelretiradadisco: {
+                disponivelretiradadisco: false
             }
         }
     }
