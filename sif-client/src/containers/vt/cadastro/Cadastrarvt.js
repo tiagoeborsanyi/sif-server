@@ -16,16 +16,16 @@ class Editarvt extends Component {
                 valid: false
             },
             vtmigrada: {
-                vtmigrada: false
+                vtmigrada: ''
             },
             fitalocalidade: {
-                fitalocalidade: false
+                fitalocalidade: ''
             },
             disco600: {
-                disco600: false
+                disco600: ''
             },
             quatrodiscos: {
-                quatrodiscos: false
+                quatrodiscos: ''
             },
             chamadoassystretiradadiscos: {
                 data: '',
@@ -34,40 +34,32 @@ class Editarvt extends Component {
             },
             hds: [
                 {
-                    baia: '1',
-                    status: ''
+                    baia1: ''
                 },
                 {
-                    baia: '2',
-                    status: ''
+                    baia2: ''
                 },
                 {
-                    baia: '3',
-                    status: ''
+                    baia3: ''
                 },
                 {
-                    baia: '4',
-                    status: ''
+                    baia4: ''
                 },
                 {
-                    baia: '5',
-                    status: ''
+                    baia5: ''
                 },
                 {
-                    baia: '6',
-                    status: ''
+                    baia6: ''
                 },
                 {
-                    baia: '7',
-                    status: ''
+                    baia7: ''
                 },
                 {
-                    baia: '8',
-                    status: ''
+                    baia8: ''
                 }
             ],
             disponivelretiradadisco: {
-                disponivelretiradadisco: false
+                disponivelretiradadisco: ''
             }
         }
     }
@@ -79,11 +71,25 @@ class Editarvt extends Component {
         let updateObjElement = {
             ...updateObjItem[event.target.name]
         }
-        updateObjElement[event.target.name] = event.target.value;
-        updateObjElement[event.target.name].trim() !==  '' ? updateObjElement['valid'] = true : updateObjElement['valid'] = false;
+        updateObjElement[event.target.id] = event.target.value;
+        updateObjElement[event.target.id].trim() !==  '' ? updateObjElement['valid'] = true : updateObjElement['valid'] = false;
         updateObjItem[event.target.name] = updateObjElement;
         this.setState({cadastro: updateObjItem});
-        console.log('event.target.value', updateObjItem);
+        //console.log('event.target.value', event.target, updateObjItem);
+    }
+
+    changedHd = (event) => {
+        const updateObjItem = {
+            ...this.state.cadastro
+        }
+        let updateObjElement = {
+            ...updateObjItem[event.target.name]
+        }
+        // console.log(updateObjElement[+event.target.id.substring(4)-1]);
+        updateObjElement[+event.target.id.substring(4)-1][event.target.id] = event.target.value;
+        updateObjItem[event.target.name] = updateObjElement;
+        this.setState({cadastro: updateObjItem});
+        // console.log('event.target.value', event.target, updateObjItem);
     }
 
     cadastraVt = (event) => {
@@ -96,7 +102,14 @@ class Editarvt extends Component {
             <CadastroVt
                 name={this.state.cadastro.name}
                 apelido={this.state.cadastro.apelido}
+                vtmigrada={this.state.cadastro.vtmigrada}
+                fitalocalidade={this.state.cadastro.fitalocalidade}
+                disco600={this.state.cadastro.disco600}
+                quatrodiscos={this.state.cadastro.quatrodiscos}
+                chamadoassystretiradadiscos={this.state.cadastro.chamadoassystretiradadiscos}
+                hds={this.state.cadastro.hds}
                 changed={(event) => this.changedItem(event)}
+                changedhd={(event) => this.changedHd(event)} 
                 cadastravt={this.cadastraVt} />
         );
     }
