@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const VtSchema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'users'
-    },
+    // user: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'users'
+    // },
     nomevt: {
       type: String,
       required: true
@@ -28,14 +28,12 @@ const VtSchema = new Schema({
     quatrodiscos: {
         type: Boolean
     },
-    chamadossystretiradadiscos: {
+    chamadoassystretiradadiscos: {
         data: {
-            type: String,
-            required: true
+            type: String
         },
         numerochamado: {
-            type: String,
-            required: true
+            type: String
         },
         observacao: {
             type: String

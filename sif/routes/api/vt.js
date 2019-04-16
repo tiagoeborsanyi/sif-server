@@ -31,29 +31,31 @@ router.get(
 // @access  Private
 router.post(
     '/',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
       const { errors, isValid } = validatevt(req.body);
   
       // Check Validation
       if (!isValid) {
         // If any errors, send 400 with errors object
+        // console.log(errors);
         return res.status(400).json(errors);
       }
 
       const tempvt = {
-        nomevt: req.body.name,
-        apelido: req.body.apelido,
-        vtmigrada: req.body.vtmigrada,
-        fitalocalidade: req.body.fitalocalidade,
-        disco600: req.body.disco600,
-        quatrodiscos: req.body.quatrodiscos,
-        chamadossystretiradadiscos: req.body.chamadossystretiradadiscos,
-        hds: req.body.hds,
-        disponivelretiradadisco: req.body.disponivelretiradadisco
+        nomevt: req.body.nomevt.nomevt,
+        apelido: req.body.apelido.apelido,
+        vtmigrada: req.body.vtmigrada.vtmigrada,
+        fitalocalidade: req.body.fitalocalidade.fitalocalidade,
+        disco600: req.body.disco600.disco600,
+        quatrodiscos: req.body.quatrodiscos.quatrodiscos,
+        disponivelretiradadisco: req.body.disponivelretiradadisco.disponivelretiradadisco,
+        observacaovt: req.body.observacaovt.observacaovt
       }
+      // console.log(tempvt, req.body);
   
-      const newvt = new vt(tempvt);
+      const newvt = new Vt(tempvt);
+      const _id = req.body._id;
 
       if (_id) {
         // Update
@@ -62,7 +64,10 @@ router.post(
             { $set: tempvt }
         ).exec().then(vt => res.status(200).json(vt));
       } else {
-        newvt.save().then(vt => res.json(vt)).catch(err => res.json({erro: 'erro para gravar vt'}));
+        newvt.save().then(vt => res.status(200).json(vt)).catch(err => {
+          console.log(err);
+          res.status(400).json({erro: 'erro para gravar vt'})
+        });
       }      
     }
 );

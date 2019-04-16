@@ -17,11 +17,11 @@ class Cadastrovt extends Component {
                     <div className={classes.item}>
                         <label>Nome VT</label>
                         <input 
-                            className={(this.props.name.valid ? classes.valid : classes.invalid)} 
+                            className={(this.props.nomevt.valid ? classes.valid : classes.invalid)} 
                             type="text" 
-                            name="name"
-                            id="name"
-                            value={this.props.name.name} 
+                            name="nomevt"
+                            id="nomevt"
+                            value={this.props.nomevt.nomevt} 
                             onChange={this.props.changed} />
                         <label>Apelido VT</label>
                         <input 

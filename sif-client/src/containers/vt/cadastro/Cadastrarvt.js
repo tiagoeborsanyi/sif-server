@@ -7,8 +7,8 @@ class Editarvt extends Component {
 
     state = {
         cadastro: {
-            name: {
-                name: '',
+            nomevt: {
+                nomevt: '',
                 valid: false
             },
             apelido: {
@@ -98,12 +98,20 @@ class Editarvt extends Component {
     cadastraVt = (event) => {
         event.preventDefault();
         console.log(this.state.cadastro);
+        axios.post('api/vt', this.state.cadastro)
+            .then(res => {
+                console.log(res);
+                this.props.history.push('/');
+            })
+            .catch(error => {
+                console.log(error.response.data);
+            })
     }
 
     render () {
         return (
             <CadastroVt
-                name={this.state.cadastro.name}
+                nomevt={this.state.cadastro.nomevt}
                 apelido={this.state.cadastro.apelido}
                 vtmigrada={this.state.cadastro.vtmigrada}
                 fitalocalidade={this.state.cadastro.fitalocalidade}
