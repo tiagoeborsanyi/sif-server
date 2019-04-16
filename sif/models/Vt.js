@@ -28,7 +28,7 @@ const VtSchema = new Schema({
     quatrodiscos: {
         type: Boolean
     },
-    chamadossystretiradadiscos: [{
+    chamadossystretiradadiscos: {
         data: {
             type: String,
             required: true
@@ -40,17 +40,41 @@ const VtSchema = new Schema({
         observacao: {
             type: String
         }
-    }],
-    hds: [{
-        baia: {
+    },
+    hds: {
+        baia1: {
             type: String,
             required: true
         },
-        status: {
+        baia2: {
+            type: String,
+            required: true
+        },
+        baia3: {
+            type: String,
+            required: true
+        },
+        baia4: {
+            type: String,
+            required: true
+        },
+        baia5: {
+            type: String,
+            required: true
+        },
+        baia6: {
+            type: String,
+            required: true
+        },
+        baia7: {
+            type: String,
+            required: true
+        },
+        baia8: {
             type: String,
             required: true
         }
-    }],
+    },
     disponivelretiradadisco: {
         type: Boolean
     },
