@@ -16,17 +16,17 @@ const VtSchema = new Schema({
         required: true
     },
     vtmigrada: {
-        type: Boolean,
+        type: String,
         required: true
     },
     fitalocalidade: {
-        type: Boolean
+        type: String
     },
     disco600: {
-        type: Boolean
+        type: String
     },
     quatrodiscos: {
-        type: Boolean
+        type: String
     },
     chamadoassystretiradadiscos: {
         data: {
@@ -74,7 +74,7 @@ const VtSchema = new Schema({
         }
     },
     disponivelretiradadisco: {
-        type: Boolean
+        type: String
     },
     situacaofita: {
         type: String
@@ -86,7 +86,7 @@ const VtSchema = new Schema({
         type: String
     },
     fitaretirada: {
-        type: Boolean
+        type: String
     },
     historicotrocafita: [{
         date: {

@@ -42,7 +42,7 @@ router.post(
         return res.status(400).json(errors);
       }
 
-      const tempvt = {
+      let tempvt = {
         nomevt: req.body.nomevt.nomevt,
         apelido: req.body.apelido.apelido,
         vtmigrada: req.body.vtmigrada.vtmigrada,
@@ -51,6 +51,21 @@ router.post(
         quatrodiscos: req.body.quatrodiscos.quatrodiscos,
         disponivelretiradadisco: req.body.disponivelretiradadisco.disponivelretiradadisco,
         observacaovt: req.body.observacaovt.observacaovt
+      }
+      tempvt.chamadoassystretiradadiscos = {
+        data: req.body.chamadoassystretiradadiscos.data,
+        numerochamado: req.body.chamadoassystretiradadiscos.numerochamado,
+        observacao: req.body.chamadoassystretiradadiscos.observacao
+      }
+      tempvt.hds = {
+        baia1: req.body.hds[0].baia1,
+        baia2: req.body.hds[1].baia2,
+        baia3: req.body.hds[2].baia3,
+        baia4: req.body.hds[3].baia4,
+        baia5: req.body.hds[4].baia5,
+        baia6: req.body.hds[5].baia6,
+        baia7: req.body.hds[6].baia7,
+        baia8: req.body.hds[7].baia8
       }
       // console.log(tempvt, req.body);
   
