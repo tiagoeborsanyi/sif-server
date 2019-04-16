@@ -60,6 +60,9 @@ class Editarvt extends Component {
             ],
             disponivelretiradadisco: {
                 disponivelretiradadisco: ''
+            },
+            observacaovt: {
+                observacaovt: ''
             }
         }
     }
@@ -108,6 +111,8 @@ class Editarvt extends Component {
                 quatrodiscos={this.state.cadastro.quatrodiscos}
                 chamadoassystretiradadiscos={this.state.cadastro.chamadoassystretiradadiscos}
                 hds={this.state.cadastro.hds}
+                disponivelretiradadisco={this.state.cadastro.disponivelretiradadisco}
+                observacaovt={this.state.cadastro.observacaovt}
                 changed={(event) => this.changedItem(event)}
                 changedhd={(event) => this.changedHd(event)} 
                 cadastravt={this.cadastraVt} />

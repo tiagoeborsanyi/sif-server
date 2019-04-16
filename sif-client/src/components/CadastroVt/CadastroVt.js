@@ -208,9 +208,29 @@ class Cadastrovt extends Component {
                     <div className={classes.item}>
                         <h3>Disponível para retirada dos discos</h3>
                         <div className={classes.item__hitoricoHd + ' '+ classes.item__hitoricoHdNumber}>
-                            <Select id="retirada_discos" options={['SIM', 'NÃO']} />   
+                            <Select 
+                                id="disponivelretiradadisco" 
+                                name="disponivelretiradadisco" 
+                                options={['SIM', 'NÃO']}
+                                value={this.props.disponivelretiradadisco.disponivelretiradadisco}
+                                changed={this.props.changed} />   
                         </div>
                         {/* aqui vai o codigo para historico de situação de HD's <HistoricoDiscos /> */}
+                    </div>
+
+                    <br />
+                    <br />
+
+                    <div className={classes.item}>
+                        <h3>Observação VT</h3>
+                        <textarea 
+                            className={classes.valid}
+                            name="observacaovt"
+                            id="observacaovt"
+                            rows="15"
+                            cols="30"
+                            value={this.props.observacaovt.observacaovt} 
+                            onChange={this.props.changed} />
                     </div>
         
                     <br />
