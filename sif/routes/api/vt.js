@@ -18,7 +18,7 @@ router.get('/test', (req, res) => res.json({ msg: 'API vt Works' }));
 // @access  Private
 router.get(
     '/',
-    passport.authenticate('jwt', { session: false }), 
+    // passport.authenticate('jwt', { session: false }), 
     (req, res) => {
     Vt.find()
         .sort({ date: -1 })
@@ -27,7 +27,7 @@ router.get(
 });
 
 // @route   POST api/vt
-// @desc    Create vt
+// @desc    Create vt geral
 // @access  Private
 router.post(
     '/',
