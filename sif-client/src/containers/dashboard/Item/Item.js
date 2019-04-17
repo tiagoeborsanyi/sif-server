@@ -7,7 +7,6 @@ class Item extends Component {
     setHds = (status, index) => {
         switch (status) {
             case 'OK':
-                console.log(typeof status)
                 return (
                     <div key={index}>
                         <li>{index}
@@ -54,7 +53,6 @@ class Item extends Component {
         const newHd = Object.entries(this.props.hd).map((hd, index) => (
             this.setHds(hd[1], index)
         ));
-        //console.log(newHd)
         return (
             <div>
                 <div className={classes.item}>
