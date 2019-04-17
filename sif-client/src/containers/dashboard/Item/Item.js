@@ -4,77 +4,67 @@ import classes from './Item.css';
 
 class Item extends Component {
 
-    setHds = (status) => {
+    setHds = (status, index) => {
         switch (status) {
             case 'OK':
+                console.log(typeof status)
                 return (
-                    <div></div>
+                    <div key={index}>
+                        <li>{index}
+                            <ul className={classes.OK}>
+                                <li><div></div></li>
+                            </ul>
+                        </li>
+                    </div>
                 );
              case 'SMART':
                 return (
-                    <div></div>
+                    <div key={index}>
+                        <li>{index}
+                            <ul className={classes.SMART}>
+                                <li><div></div></li>
+                            </ul>
+                        </li>
+                    </div>
                 );
             case 'FAULT':
                 return (
-                    <div></div>
+                    <div key={index}>
+                        <li>{index}
+                            <ul className={classes.FAULT}>
+                                <li><div></div></li>
+                            </ul>
+                        </li>
+                    </div>
                 );
             case 'NOT':
                 return (
-                    <div></div>
+                    <div key={index}>
+                        <li>{index}
+                            <ul className={classes.NOT}>
+                                <li><div></div></li>
+                            </ul>
+                        </li>
+                    </div>
                 );
         }
     }
 
     render () {
+        const newHd = Object.entries(this.props.hd).map((hd, index) => (
+            this.setHds(hd[1], index)
+        ));
+        //console.log(newHd)
         return (
             <div>
                 <div className={classes.item}>
                     <div className={classes.item__title}>
-                        <h3>Pederneiras</h3>
-                        <p><span>Migrada: </span>Sim</p>
+                        <h3>{this.props.nomevt} - {this.props.apelido}</h3>
+                        <p><span>Migrada: </span>{this.props.migrada}</p>
                     </div>
                     <div className={classes.item__content}>
                         <ul className={classes.item__content_list}>
-                            <li>1
-                                <ul className={classes.item__content_hd}>
-                                    <li><div></div></li>
-                                </ul>
-                            </li>
-                            <li>2
-                                <ul className={classes.item__content_hd}>
-                                    <li><div></div></li>
-                                </ul>
-                            </li>
-                            <li>3
-                                <ul className={classes.item__content_hd}>
-                                    <li><div></div></li>
-                                </ul>
-                            </li>
-                            <li>4
-                                <ul className={classes.item__content_hd}>
-                                    <li><div></div></li>
-                                </ul>
-                            </li>
-                            <li>5
-                                <ul className={classes.item__content_hd}>
-                                    <li><div></div></li>
-                                </ul>
-                            </li>
-                            <li>6
-                                <ul className={classes.item__content_hd}>
-                                    <li><div></div></li>
-                                </ul>
-                            </li>
-                            <li>7
-                                <ul className={classes.item__content_hd}>
-                                    <li><div></div></li>
-                                </ul>
-                            </li>
-                            <li>8
-                                <ul className={classes.item__content_hd}>
-                                    <li><div></div></li>
-                                </ul>
-                            </li>
+                            {newHd}
                         </ul>
                     </div>
                     </div>

@@ -19,9 +19,22 @@ class Dashboard extends Component {
 
     render() {
         console.log(this.state.itens);
+        const itens = this.state.itens;
+        let compItens = null
+        if (itens) {
+            compItens = itens.map((item, index) => (
+                                <Item
+                                    key={item._id}
+                                    id={item._id}
+                                    nomevt={item.nomevt} 
+                                    apelido={item.apelido}
+                                    migrada={item.vtmigrada}
+                                    hd={item.hds} />
+                            ))
+        }
         return (
             <div className={classes.container}>
-                <Item />
+                {compItens}
             </div>
         )
     }

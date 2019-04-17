@@ -49,13 +49,38 @@
     padding: 3px 4px;
 }
 
-.item__content_hd {
+.OK,
+.SMART,
+.FAULT,
+.NOT {
     padding: 0;
 }
 
-.item__content_hd li div {
+
+.OK li div {
     width: 20px;
     height: 20px;
     background: green;
+    border-radius: 50%;
+}
+
+.SMART li div {
+    width: 20px;
+    height: 20px;
+    background: orange;
+    border-radius: 50%;
+}
+
+.FAULT li div {
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.NOT li div {
+    width: 20px;
+    height: 20px;
+    background: #ccc;
     border-radius: 50%;
 }
