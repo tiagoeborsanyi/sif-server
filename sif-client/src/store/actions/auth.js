@@ -27,10 +27,9 @@ export const auth = (email, password) => {
         dispatch(authStart());
         const authData = {
             email: email,
-            password: password,
-            returnSecureToken: true
+            password: password
         }
         console.log(authData);
-        
+        dispatch(authSuccess(authData));
     }
 }

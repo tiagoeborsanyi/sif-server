@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import classes from './Auth.css';
-import * as actions from '../../store/actions/auth';
+import * as actions from '../../store/actions/index';
 
 class Auth extends Component {
+
+    submitHandler = () => {
+        // event.preventDefault();
+        this.props.onAuth('teste', '123');
+    }
+
     render () {
         return (
             <div>
@@ -19,8 +25,9 @@ class Auth extends Component {
                             <label>Senha</label>
                             <input type="password" placeholder="senha" />
                         </div>
-                        <button>Cadastrar</button>
+                        <button onClick={this.submitHandler}>Cadastrar</button>
                     </form>
+                    <button onClick={this.submitHandler}>test</button>
                 </div>
             </div>
         );
