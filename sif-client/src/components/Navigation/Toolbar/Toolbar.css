@@ -30,3 +30,27 @@
 .navbar li a:hover {
     color: #ccc; 
 }
+
+.list_1 ul {
+    position: absolute;
+    background: #8cb0ea;
+    /* margin-top: 13px; */
+    list-style: none;
+    display: none;
+    padding: 0;
+    width: 90px;
+    z-index: 1;
+  }
+
+  .list_1 ul li {
+    margin: 13px 1px;
+  }
+
+  .list_1 ul li a {
+    color: white;
+  }
+
+  .list_1:hover > ul,
+  .list_1 ul:hover {
+    display: block;
+  }

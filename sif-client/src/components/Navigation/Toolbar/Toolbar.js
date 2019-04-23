@@ -10,7 +10,20 @@ const toolbar = (props) => (
             <ul>
                 <li className={classes.logo}><NavLink to="/">Logo</NavLink></li>
                 <li className={classes.links}><NavLink to="/cadastro-vt">ADD+</NavLink></li>
-                <li className={classes.links}><NavLink to="/user">User</NavLink></li>
+                <li className={classes.links+' '+classes.list_1}>
+                    <a href="#">Usuario</a>
+                    <ul>
+                        <li>
+                            <NavLink to="/perfil-user">Perfil</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/cadastro-user">Cadastrar</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/logout">Sair</NavLink>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
