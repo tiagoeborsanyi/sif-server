@@ -7,13 +7,20 @@
     background: #8cb0ea;
 }
 
-.navbar ul,
-.navbar li {
-    display: flex; 
+.nav__items {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  position: relative;
 }
 
 .logo {
     margin-right: auto;
+    padding-left: 50px;
+}
+
+.search {
+  margin: auto;
 }
 
 .links {
@@ -31,6 +38,10 @@
     color: #ccc; 
 }
 
+.list_1 {
+  margin-right: 50px;
+}
+
 .list_1 ul {
     position: absolute;
     background: #8cb0ea;
@@ -40,6 +51,7 @@
     padding: 0;
     width: 90px;
     z-index: 1;
+    padding: 6px 9px;
   }
 
   .list_1 ul li {

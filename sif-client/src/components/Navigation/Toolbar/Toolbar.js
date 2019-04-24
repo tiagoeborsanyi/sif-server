@@ -7,8 +7,9 @@ const toolbar = (props) => (
     <div>
     <header>
         <nav className={classes.navbar}>
-            <ul>
-                <li className={classes.logo}><NavLink to="/">Logo</NavLink></li>
+            <ul className={classes.nav__items}>
+                <li className={classes.logo}><NavLink to="/">Sif-Server</NavLink></li>
+                <li className={classes.search}><input type="password" placeholder="senha" /></li>
                 <li className={classes.links}><NavLink to="/cadastro-vt">ADD+</NavLink></li>
                 <li className={classes.links+' '+classes.list_1}>
                     <a href="#">Usuario</a>
