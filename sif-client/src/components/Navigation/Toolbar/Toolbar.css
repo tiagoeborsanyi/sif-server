@@ -20,7 +20,21 @@
 }
 
 .search {
-  margin: auto;
+  margin-right: auto;
+  width: 360px;
+}
+
+.search input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: blue;
+  background: #8cb0ea;
+  color: white;
+  height: 23px;
+  width: 100%;
+  font-size: 15px;
+  padding-left: 6px;
 }
 
 .links {

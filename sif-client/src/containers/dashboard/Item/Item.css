@@ -31,9 +31,14 @@
     margin-right: auto;
 }
 
-.item__title h3:hover {
+.item__title a {
+    text-decoration: none;
+    color: #2d841a;
+}
+
+.item__title a:hover {
     cursor: pointer;
-    color: aquamarine;
+    color: #6fe554;
     font-weight: bold;
 }
 

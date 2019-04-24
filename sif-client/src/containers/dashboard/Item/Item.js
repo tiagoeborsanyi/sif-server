@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import classes from './Item.css';
 
@@ -57,7 +58,10 @@ class Item extends Component {
             <div>
                 <div className={classes.item}>
                     <div className={classes.item__title}>
-                        <h3>{this.props.nomevt} - {this.props.apelido}</h3>
+                        <h3><Link to={{
+                            pathname: '/visualiza-vt',
+                            hash: `#${this.props.id}`
+                        }}>{this.props.nomevt} - {this.props.apelido}</Link></h3>
                         <p><span>Migrada: </span>{this.props.migrada}</p>
                     </div>
                     <div className={classes.item__content}>
