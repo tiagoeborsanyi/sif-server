@@ -12,7 +12,7 @@ const toolbar = (props) => (
                 <li className={classes.search}><input type="text" placeholder="Search" /></li>
                 <li className={classes.links}><NavLink to="/cadastro-vt">ADD+</NavLink></li>
                 <li className={classes.links+' '+classes.list_1}>
-                    <a href="#">Usuario</a>
+                    <span className={classes.link__user}>Usuario</span>
                     <ul>
                         <li>
                             <NavLink to="/perfil-user">Perfil</NavLink>

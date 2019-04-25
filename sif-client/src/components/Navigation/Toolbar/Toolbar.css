@@ -41,6 +41,7 @@
     margin-right: 26px;
 }
 
+.link__user,
 .navbar li a {
     cursor: pointer;
     color: white;
@@ -48,6 +49,8 @@
     font-weight: bold;
 }
 
+
+.link__user:hover,
 .navbar li a:hover {
     color: #ccc; 
 }

@@ -69,6 +69,7 @@ class Viewvt extends Component {
                         </li>
                     </div>
                 );
+            default: return (<div></div>);
         }
     }
 
@@ -78,7 +79,7 @@ class Viewvt extends Component {
             newHd = Object.entries(this.state.vt.hds).map((hd, index) => (
                 this.setHds(hd[1], index)
             ));
-            console.log(this.state.vt.hds)
+            // console.log(this.state.vt.hds)
         }
         return (
             <div className={classes.container}>
@@ -115,12 +116,12 @@ class Viewvt extends Component {
                             <td data-label="Amount">SMART</td>
                             </tr>
                             <tr>
-                            <td scope="row" data-label="Account">22/03/2019</td>
+                            <td data-label="Account">22/03/2019</td>
                             <td data-label="Due Date">3</td>
                             <td data-label="Amount">FAULT</td>
                             </tr>
                             <tr>
-                            <td scope="row" data-label="Account">23/04/2019</td>
+                            <td data-label="Account">23/04/2019</td>
                             <td data-label="Due Date">6</td>
                             <td data-label="Amount">FAULT</td>
                             </tr>
@@ -147,11 +148,11 @@ class Viewvt extends Component {
                             <td data-label="Due Date">Unidade foi trocada</td>
                             </tr>
                             <tr>
-                            <td scope="row" data-label="Account">22/03/2019</td>
+                            <td data-label="Account">22/03/2019</td>
                             <td data-label="Due Date">foi colocada a unidade de batatais</td>
                             </tr>
                             <tr>
-                            <td scope="row" data-label="Account">23/04/2019</td>
+                            <td data-label="Account">23/04/2019</td>
                             <td data-label="Due Date">referente ao chamado r3454</td>
                             </tr>
                         </tbody>

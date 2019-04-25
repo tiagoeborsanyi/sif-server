@@ -47,6 +47,7 @@ class Item extends Component {
                         </li>
                     </div>
                 );
+            default: return (<div></div>);
         }
     }
 
