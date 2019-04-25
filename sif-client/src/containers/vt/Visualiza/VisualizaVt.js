@@ -74,15 +74,85 @@ class Viewvt extends Component {
     }
 
     render () {
-        let newHd = null
+        let newHd = null;
+        let histHd = [];
+        let tableHd = null;
+        let histFita = [];
+        let tableFita = null;
         if (this.state.vt.hds) {
             newHd = Object.entries(this.state.vt.hds).map((hd, index) => (
                 this.setHds(hd[1], index)
             ));
             // console.log(this.state.vt.hds)
         }
+        if (this.state.vt.historicosituacaohd) {
+            const arrHd = this.state.vt.historicosituacaohd;
+            histHd = arrHd.map((objHd, index) => (
+                        <tbody key={index}>
+                            <tr>
+                            <td>{objHd.date}</td>
+                            <td>{objHd.baia}</td>
+                            <td>{objHd.observacao}</td>
+                            </tr>
+                        </tbody>
+            ));
+            if (histHd.length > 0) {
+                tableHd  = (
+                    <div>
+                        <h2>Historico de troca de HD's</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                <th scope="col">Data</th>
+                                <th scope="col">Numero da baia</th>
+                                <th scope="col">Observação</th>
+                                </tr>
+                            </thead>
+                            {histHd}
+                        </table>
+                    </div>
+                );
+            }
+        }
+        if (this.state.vt.historicotrocafita) {
+            const arrFita = this.state.vt.historicotrocafita;
+            histFita = arrFita.map((objFita, index) => (
+                <tbody key={index}>
+                    <tr>
+                    <td>{objFita.date}</td>
+                    <td>{objFita.observacao}</td>
+                    </tr>
+                </tbody>
+            ));
+            if (histFita.length > 0) {
+                tableFita = (
+                <div>
+                <hr />
+                <div className={classes.container_unidfita__descricao_situacao}>Unidade de fita situação: <div className={classes.container_unidfita__situação}></div></div>
+                <div className={classes.container_hunidfita__historico_troca}>
+                    <h2>Historico de troca de Unidades de Fitas</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                            <th scope="col">Data</th>
+                            <th scope="col">Observação</th>
+                            </tr>
+                        </thead>
+                        {histFita}
+                    </table>
+                </div>
+                </div>
+                );
+            }
+        }
         return (
             <div className={classes.container}>
+            <div className={classes.content__botao}>
+                <button>Hd's</button>
+                <button>Unid. Fita</button>
+                <button>Editar</button>
+                <button>Excluir</button>
+            </div>
             <div className={classes.container_titulo}>
                 <h2>{this.state.vt.nomevt} - {this.state.vt.apelido}</h2>
                 <h3>VT MIGRADA: {this.state.vt.vtmigrada}</h3>
@@ -100,64 +170,16 @@ class Viewvt extends Component {
                     
                     <br />
                     <br />
-                    <h2>Historico de troca de HD's</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                            <th scope="col">Data</th>
-                            <th scope="col">Numero da baia</th>
-                            <th scope="col">Situação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td data-label="Account">15/03/2019</td>
-                            <td data-label="Due Date">5</td>
-                            <td data-label="Amount">SMART</td>
-                            </tr>
-                            <tr>
-                            <td data-label="Account">22/03/2019</td>
-                            <td data-label="Due Date">3</td>
-                            <td data-label="Amount">FAULT</td>
-                            </tr>
-                            <tr>
-                            <td data-label="Account">23/04/2019</td>
-                            <td data-label="Due Date">6</td>
-                            <td data-label="Amount">FAULT</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    {tableHd}
                 </div>
 
                 <br />
                 <br />
-                <hr />
-                <div className={classes.container_unidfita__descricao_situacao}>Unidade de fita situação: <div className={classes.container_unidfita__situação}></div></div>
-                <div className={classes.container_hunidfita__historico_troca}>
-                    <h2>Historico de troca de Unidades de Fitas</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                            <th scope="col">Data</th>
-                            <th scope="col">Observação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td data-label="Account">15/03/2019</td>
-                            <td data-label="Due Date">Unidade foi trocada</td>
-                            </tr>
-                            <tr>
-                            <td data-label="Account">22/03/2019</td>
-                            <td data-label="Due Date">foi colocada a unidade de batatais</td>
-                            </tr>
-                            <tr>
-                            <td data-label="Account">23/04/2019</td>
-                            <td data-label="Due Date">referente ao chamado r3454</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                {tableFita}
+            </div>
+            <div>
+                <h3>Observação VT</h3>
+                <p>{this.state.vt.observacaovt}</p>
             </div>
         </div>
         );

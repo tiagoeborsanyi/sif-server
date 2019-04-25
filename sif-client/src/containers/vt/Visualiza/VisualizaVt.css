@@ -3,6 +3,30 @@
     width: 80%;
 }
 
+.content__botao {
+  text-align: right;
+  margin-right: 30px;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.content__botao button {
+  margin: 0 6px;
+  text-decoration: none;
+  background: green;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.content__botao button:hover {
+  color: green;
+  background: white;
+  border: 1px solid green;
+  cursor: pointer;
+}
+
 .container_titulo {
     display: block;
     width: 100%;
