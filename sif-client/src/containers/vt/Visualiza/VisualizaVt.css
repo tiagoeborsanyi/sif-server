@@ -1,0 +1,126 @@
+.container {
+    margin: 80px auto;
+    width: 80%;
+}
+
+.container_titulo {
+    display: block;
+    width: 100%;
+    text-align: center
+}
+
+.container_hd__descricao_situacao,
+.container_unidfita__descricao_situacao {
+    display: flex;
+    margin: 10px 13px;
+}
+
+.container_hd__situação,
+.container_unidfita__situação {
+    width: 20px;
+    height: 20px;
+    background: blue;
+    border-radius: 50px;
+    margin-left: 16px;
+}
+
+.container_hd__historico_troca,
+.container_hunidfita__historico_troca {
+    text-align: center;
+}
+
+.hd_status__content {
+  position: relative;
+  display: flex;
+}
+
+.container_hd__unidades {
+  display: flex;
+    margin: auto;
+}
+.container_hd__unidades li {
+  display: inline-block;
+  text-align: center;
+  margin: 2px 6px;
+  padding: 3px 4px;
+}
+
+.container_hd__unidade_coloridas {
+    padding: 0;
+}
+
+.container_hd__unidade_coloridas li div {
+    width: 20px;
+    height: 20px;
+    background: blue;
+    border-radius: 50px;
+}
+
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .OK,
+.SMART,
+.FAULT,
+.NOT {
+    padding: 0;
+}
+
+
+.OK li div {
+    width: 20px;
+    height: 20px;
+    background: green;
+    border-radius: 50%;
+}
+
+.SMART li div {
+    width: 20px;
+    height: 20px;
+    background: orange;
+    border-radius: 50%;
+}
+
+.FAULT li div {
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.NOT li div {
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 50%;
+}

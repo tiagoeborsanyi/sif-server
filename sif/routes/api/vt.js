@@ -92,9 +92,9 @@ router.post(
 // @access  Private
 router.get(
     '/:id', 
-    passport.authenticate('jwt', { session: false }), 
+    // passport.authenticate('jwt', { session: false }), 
     (req, res) => {
-      vt.findById(req.params.id)
+      Vt.findById(req.params.id)
         .then(vt => res.json(vt))
         .catch(err =>
           res.status(404).json({ vtnotfound: 'vt não encontrada' })

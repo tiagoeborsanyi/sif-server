@@ -18,6 +18,14 @@ class Auth extends Component {
                     <div className={classes.titulo}><h1>Cadastra Usuario</h1></div>
                     <form>
                         <div>
+                            <label>Nome</label>
+                            <input type="text" placeholder="Nome" />
+                        </div>
+                        <div>
+                            <label>Setor</label>
+                            <input type="text" placeholder="Setor" />
+                        </div>
+                        <div>
                             <label>E-mail</label>
                             <input type="text" placeholder="e-mail" />
                         </div>
