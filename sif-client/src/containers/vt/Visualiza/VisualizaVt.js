@@ -154,14 +154,20 @@ class Viewvt extends Component {
                 <button>Excluir</button>
             </div>
             <div className={classes.container_titulo}>
-                <h2>{this.state.vt.nomevt} - {this.state.vt.apelido}</h2>
-                <h3>VT MIGRADA: {this.state.vt.vtmigrada}</h3>
+                <h3>{this.state.vt.nomevt} - {this.state.vt.apelido}</h3>
+                <h4><span>VT MIGRADA:</span> {this.state.vt.vtmigrada}</h4>
             </div>
             <div className={classes.container_hd}>
+                <div className={classes.status__geral}>
+                    <div className={classes.container_hd__descricao_situacao}><span>Disco de 600 Gb:</span>{this.state.vt.disco600}</div>
+                    <div className={classes.container_hd__descricao_situacao}><span>Disponível para retirada de Discos:</span>  {this.state.vt.disponivelretiradadisco}</div>
+                    <div className={classes.container_hd__descricao_situacao}><span>Unidade de Fita esta na localidade:</span>  {this.state.vt.fitalocalidade}</div>
+                    <div className={classes.container_hd__descricao_situacao}><span>Foi recolhido os 4 discos:</span>  {this.state.vt.quatrodiscos}</div>
+                </div>
                 <hr />
                 <div className={classes.container_hd__descricao_situacao}>HD's situação: <div className={classes.container_hd__situação}></div></div>
                 <div className={classes.container_hd__historico_troca}>
-                    <h2>Status dos HD's</h2>
+                    <h3>Status dos HD's</h3>
                     <div className={classes.hd_status__content}>
                         <ul className={classes.container_hd__unidades}>
                             {newHd}

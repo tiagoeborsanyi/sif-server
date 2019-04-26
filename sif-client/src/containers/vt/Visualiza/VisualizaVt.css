@@ -33,6 +33,19 @@
     text-align: center
 }
 
+.container_titulo span {
+  color: green;
+  margin-right: 2px;
+}
+
+.status__geral {
+  font-weight: bold;
+}
+.status__geral span {
+  color: green;
+  margin-right: 15px;
+}
+
 .container_hd__descricao_situacao,
 .container_unidfita__descricao_situacao {
     display: flex;
