@@ -32,7 +32,7 @@ class Viewvt extends Component {
             case 'OK':
                 return (
                     <div key={index}>
-                        <li>{index}
+                        <li>{index+1}
                             <ul className={classes.OK}>
                                 <li><div></div></li>
                             </ul>
@@ -42,7 +42,7 @@ class Viewvt extends Component {
              case 'SMART':
                 return (
                     <div key={index}>
-                        <li>{index}
+                        <li>{index+1}
                             <ul className={classes.SMART}>
                                 <li><div></div></li>
                             </ul>
@@ -52,7 +52,7 @@ class Viewvt extends Component {
             case 'FAULT':
                 return (
                     <div key={index}>
-                        <li>{index}
+                        <li>{index+1}
                             <ul className={classes.FAULT}>
                                 <li><div></div></li>
                             </ul>
@@ -62,7 +62,7 @@ class Viewvt extends Component {
             case 'NOT':
                 return (
                     <div key={index}>
-                        <li>{index}
+                        <li>{index+1}
                             <ul className={classes.NOT}>
                                 <li><div></div></li>
                             </ul>
