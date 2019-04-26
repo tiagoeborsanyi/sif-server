@@ -87,6 +87,28 @@ router.post(
     }
 );
 
+// @route   POST api/vt/fita/:id
+// @desc    Create Historico de unidades de fita
+// @access  Private
+router.post(
+    '/fita/:id',
+    // passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+      res.json(req.params.id);
+    }
+);
+
+// @route   POST api/vt/hd/:id
+// @desc    Create Historico de troca de hd's
+// @access  Private
+router.post(
+  '/hd/:id',
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    res.json(req.params.id);
+  }
+)
+
 // @route   GET api/vt/:id
 // @desc    Get vt by id
 // @access  Private

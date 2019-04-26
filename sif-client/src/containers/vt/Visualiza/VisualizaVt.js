@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from '../../../axios-order';
 
 import classes from './VisualizaVt.css';
@@ -145,11 +146,14 @@ class Viewvt extends Component {
                 );
             }
         }
+        console.log(this.props);
         return (
             <div className={classes.container}>
             <div className={classes.content__botao}>
                 <button>Hd's</button>
-                <button>Unid. Fita</button>
+                <Link to={{
+                    pathname: '/edita-fita',
+                    hash: `#${this.state.vt._id}`}}>Unid. Fita</Link>
                 <button>Editar</button>
                 <button>Excluir</button>
             </div>

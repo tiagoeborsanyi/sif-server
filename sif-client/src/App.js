@@ -7,6 +7,7 @@ import CadastroVt from './containers/vt/cadastro/Cadastrarvt';
 import Dashboard from './containers/dashboard/Dashboard';
 import VisualizaVt from './containers/vt/Visualiza/VisualizaVt';
 import Auth from './containers/auth/Auth';
+import EditFita from './containers/historico/fita/EditFita';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path="/cadastro-vt" component={CadastroVt} />
             <Route path="/cadastro-user" component={Auth} />
             <Route path="/visualiza-vt" component={VisualizaVt} />
+            <Route path="/edita-fita" component={EditFita}    />
             <Route path="/" exact component={Dashboard} />
           </Switch>
         </Layout>
