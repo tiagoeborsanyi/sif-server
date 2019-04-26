@@ -10,17 +10,19 @@
   margin-bottom: 50px;
 }
 
-.content__botao button {
+.content__botao button,
+.content__botao a {
   margin: 0 6px;
   text-decoration: none;
   background: green;
   color: white;
-  padding: 10px;
+  padding: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-.content__botao button:hover {
+.content__botao button:hover,
+.content__botao a:hover {
   color: green;
   background: white;
   border: 1px solid green;

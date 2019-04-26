@@ -150,7 +150,9 @@ class Viewvt extends Component {
         return (
             <div className={classes.container}>
             <div className={classes.content__botao}>
-                <button>Hd's</button>
+                <Link to={{
+                    pathname: '/edita-hd',
+                    hash: `#${this.state.vt._id}`}}>Hd's</Link>
                 <Link to={{
                     pathname: '/edita-fita',
                     hash: `#${this.state.vt._id}`}}>Unid. Fita</Link>
