@@ -74,9 +74,7 @@ class Editarvt extends Component {
             axios.get(`/api/vt/${id}`)
                 .then(res => {
                     let updateCadastro =  {
-                        _id: {
-                            id: res.data._id
-                        },
+                        _id: res.data._id,
                         nomevt: {
                             nomevt: res.data.nomevt
                         },

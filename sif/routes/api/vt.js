@@ -70,7 +70,7 @@ router.post(
       // console.log(tempvt, req.body);
   
       const newvt = new Vt(tempvt);
-      const _id = req.body._id.id;
+      const _id = req.body._id;
 
       if (_id) {
         // Update
