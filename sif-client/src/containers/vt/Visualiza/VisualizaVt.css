@@ -9,7 +9,7 @@
   margin-top: 80px;
   margin-bottom: 50px;
   font-family: antialiased;
-  font: Arial 13px Arial;
+  font: 400 13px Arial;
 }
 
 .content__botao button,
@@ -76,8 +76,9 @@
 }
 
 .container_hd__unidades {
+  position: relative;
   display: flex;
-    margin: auto;
+  margin: auto;
 }
 .container_hd__unidades li {
   display: inline-block;
