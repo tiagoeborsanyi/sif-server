@@ -162,7 +162,9 @@ class Viewvt extends Component {
                 <Link to={{
                     pathname: '/edita-fita',
                     hash: `#${this.state.vt._id}`}}>Unid. Fita</Link>
-                <button>Editar</button>
+                <Link to={{
+                    pathname: '/cadastro-vt',
+                    hash: `#${this.state.vt._id}`}}>Editar</Link>
                 <button onClick={this.deleteVt}>Excluir</button>
             </div>
             <div className={classes.container_titulo}>

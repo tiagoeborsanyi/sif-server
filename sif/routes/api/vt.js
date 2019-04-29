@@ -70,11 +70,11 @@ router.post(
       // console.log(tempvt, req.body);
   
       const newvt = new Vt(tempvt);
-      const _id = req.body._id;
+      const _id = req.body._id.id;
 
       if (_id) {
         // Update
-        vt.findByIdAndUpdate(
+        Vt.findByIdAndUpdate(
             { _id },
             { $set: tempvt }
         ).exec().then(vt => res.status(200).json(vt));
