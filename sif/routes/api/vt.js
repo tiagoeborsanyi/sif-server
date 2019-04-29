@@ -167,9 +167,9 @@ router.get(
   // @access  Private
   router.delete(
     '/:id',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        vt.findById(req.params.id)
+        Vt.findById(req.params.id)
           .then(vt => {
             // Delete
             vt.remove().then(() => res.json({ success: true }));
