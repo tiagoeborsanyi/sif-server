@@ -124,7 +124,27 @@ router.post(
   '/hd/:id',
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    res.json(req.params.id);
+      const id = req.params.id;
+      // console.log(req.body);
+
+      Vt.findById(id)
+        .then(findVt => {
+          // console.log(findVt);
+            findVt.historicosituacaohd.unshift({
+              date: req.body.data,
+              baia: req.body.baia,
+              observacao: req.body.observacao
+            });
+            const _id = findVt._id;
+          Vt.findByIdAndUpdate(
+            { _id },
+            { $set: findVt }
+          ).exec().then(vt => res.status(200).json(vt));
+        })
+        .catch(err => {
+          // console.log(err);
+          res.status(400).json({erro: 'erro para gravar histórico de HD.'})
+        });
   }
 )
 
