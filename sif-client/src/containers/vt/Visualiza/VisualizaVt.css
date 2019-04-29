@@ -8,6 +8,8 @@
   margin-right: 30px;
   margin-top: 80px;
   margin-bottom: 50px;
+  font-family: antialiased;
+  font: Arial 13px Arial;
 }
 
 .content__botao button,
