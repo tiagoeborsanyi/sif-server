@@ -24,8 +24,14 @@ class Viewvt extends Component {
         }
     }
 
-    deleteVt = (id) => {
-
+    deleteVt = () => {
+        const id = this.props.location.hash.slice(1);
+        axios.delete(`/api/vt/${id}`)
+            .then(res => {
+                console.log(res);
+                this.props.history.push('/');
+            })
+            .catch(err => console.log(err));
     }
 
     setHds = (status, index) => {
@@ -156,8 +162,10 @@ class Viewvt extends Component {
                 <Link to={{
                     pathname: '/edita-fita',
                     hash: `#${this.state.vt._id}`}}>Unid. Fita</Link>
-                <button>Editar</button>
-                <button>Excluir</button>
+                <Link to={{
+                    pathname: '/cadastro-vt',
+                    hash: `#${this.state.vt._id}`}}>Editar</Link>
+                <button onClick={this.deleteVt}>Excluir</button>
             </div>
             <div className={classes.container_titulo}>
                 <h3>{this.state.vt.nomevt} - {this.state.vt.apelido}</h3>

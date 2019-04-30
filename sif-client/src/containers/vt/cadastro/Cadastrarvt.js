@@ -64,6 +64,77 @@ class Editarvt extends Component {
             observacaovt: {
                 observacaovt: ''
             }
+        },
+        update: true
+    }
+
+    componentDidMount() {
+        if (this.state.update) {
+            const id = this.props.location.hash.slice(1);
+            axios.get(`/api/vt/${id}`)
+                .then(res => {
+                    let updateCadastro =  {
+                        _id: res.data._id,
+                        nomevt: {
+                            nomevt: res.data.nomevt
+                        },
+                        apelido: {
+                            apelido: res.data.apelido
+                        },
+                        vtmigrada: {
+                            vtmigrada: res.data.vtmigrada
+                        },
+                        fitalocalidade: {
+                            fitalocalidade: res.data.fitalocalidade
+                        },
+                        disco600: {
+                            disco600: res.data.disco600
+                        },
+                        quatrodiscos: {
+                            quatrodiscos: res.data.quatrodiscos
+                        },
+                        chamadoassystretiradadiscos: {
+                            data: res.data.chamadoassystretiradadiscos.data,
+                            numerochamado: res.data.chamadoassystretiradadiscos.numerochamado,
+                            observacao: res.data.chamadoassystretiradadiscos.observacao
+                        },
+                        hds: [
+                            {
+                                baia1: res.data.hds.baia1
+                            },
+                            {
+                                baia2: res.data.hds.baia2
+                            },
+                            {
+                                baia3: res.data.hds.baia3
+                            },
+                            {
+                                baia4: res.data.hds.baia4
+                            },
+                            {
+                                baia5: res.data.hds.baia5
+                            },
+                            {
+                                baia6: res.data.hds.baia6
+                            },
+                            {
+                                baia7: res.data.hds.baia7
+                            },
+                            {
+                                baia8: res.data.hds.baia8
+                            }
+                        ],
+                        disponivelretiradadisco: {
+                            disponivelretiradadisco: res.data.disponivelretiradadisco
+                        },
+                        observacaovt: {
+                            observacaovt: res.data.observacaovt
+                        }
+                    }
+                    this.setState({cadastro: updateCadastro, update: false});
+                    console.log(res.data);
+                })
+                .catch(err => console.log(err));
         }
     }
 

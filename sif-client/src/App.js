@@ -7,8 +7,8 @@ import CadastroVt from './containers/vt/cadastro/Cadastrarvt';
 import Dashboard from './containers/dashboard/Dashboard';
 import VisualizaVt from './containers/vt/Visualiza/VisualizaVt';
 import Auth from './containers/auth/Auth';
-import EditFita from './containers/historico/fita/EditFita';
-import EditHd from './containers/historico/hd/EditHd';
+import EditFita from './containers/vt/historico/fita/EditFita';
+import EditHd from './containers/vt/historico/hd/EditHd';
 
 class App extends Component {
   render() {

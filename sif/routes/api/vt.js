@@ -74,7 +74,7 @@ router.post(
 
       if (_id) {
         // Update
-        vt.findByIdAndUpdate(
+        Vt.findByIdAndUpdate(
             { _id },
             { $set: tempvt }
         ).exec().then(vt => res.status(200).json(vt));
@@ -94,7 +94,26 @@ router.post(
     '/fita/:id',
     // passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      res.json(req.params.id);
+      const id = req.params.id;
+      // console.log(req.body);
+
+      Vt.findById(id)
+        .then(findVt => {
+          // console.log(findVt);
+            findVt.historicotrocafita.unshift({
+              date: req.body.data,
+              observacao: req.body.observacao
+            });
+            const _id = findVt._id;
+          Vt.findByIdAndUpdate(
+            { _id },
+            { $set: findVt }
+          ).exec().then(vt => res.status(200).json(vt));
+        })
+        .catch(err => {
+          // console.log(err);
+          res.status(400).json({erro: 'erro para gravar histórico de fita.'})
+        });
     }
 );
 
@@ -105,7 +124,27 @@ router.post(
   '/hd/:id',
   // passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    res.json(req.params.id);
+      const id = req.params.id;
+      // console.log(req.body);
+
+      Vt.findById(id)
+        .then(findVt => {
+          // console.log(findVt);
+            findVt.historicosituacaohd.unshift({
+              date: req.body.data,
+              baia: req.body.baia,
+              observacao: req.body.observacao
+            });
+            const _id = findVt._id;
+          Vt.findByIdAndUpdate(
+            { _id },
+            { $set: findVt }
+          ).exec().then(vt => res.status(200).json(vt));
+        })
+        .catch(err => {
+          // console.log(err);
+          res.status(400).json({erro: 'erro para gravar histórico de HD.'})
+        });
   }
 )
 
@@ -128,9 +167,9 @@ router.get(
   // @access  Private
   router.delete(
     '/:id',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        vt.findById(req.params.id)
+        Vt.findById(req.params.id)
           .then(vt => {
             // Delete
             vt.remove().then(() => res.json({ success: true }));
