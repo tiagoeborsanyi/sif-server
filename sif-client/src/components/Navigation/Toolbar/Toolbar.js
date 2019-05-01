@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchSearch } from '../../../store/actions/busca';
 
 import classes from './Toolbar.css';
 
 class Toolbar extends Component {
+    state = {
+
+    }
+
+    componentDidMount() {
+        const val = ['1', '2']
+        this.props.onSearchValue(val);
+    }
+
     render () {
         return (
             <div>
@@ -35,4 +46,16 @@ class Toolbar extends Component {
     }
 }
 
-export default Toolbar;
+const mapStateToProps = state => {
+    return {
+        filtro: state.filtro.search
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSearchValue: (value) => dispatch(fetchSearch(value))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);

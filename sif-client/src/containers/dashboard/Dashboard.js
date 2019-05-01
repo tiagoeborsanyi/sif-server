@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../axios-order';
+import { connect } from 'react-redux';
 
 import classes from './Dashboard.css';
 import Item from './Item/Item';
@@ -18,7 +19,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        console.log(this.state.itens);
+        console.log(this.props.filtro);
         const itens = this.state.itens;
         let compItens = null
         if (itens) {
@@ -40,4 +41,10 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+    return {
+        filtro: state.filtro.search
+    }
+}
+
+export default connect(mapStateToProps)(Dashboard);
