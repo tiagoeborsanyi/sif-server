@@ -3,5 +3,6 @@ export {
 } from './auth';
 
 export {
-    fetchSearch
+    fetchSearch,
+    fetchSearchResult
 } from './busca';

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchSearch } from '../../../store/actions/busca';
+import { fetchSearchResult } from '../../../store/actions/busca';
 
 import classes from './Toolbar.css';
 
 class Toolbar extends Component {
     state = {
-
+        valor: ''
     }
 
-    componentDidMount() {
-        const val = ['1', '2']
-        this.props.onSearchValue(val);
+    setSearchBar = (event) => {
+        this.setState({valor: event.target.value});
+        this.props.onSearchResult(event.target.value);
     }
 
     render () {
@@ -22,7 +22,7 @@ class Toolbar extends Component {
                 <nav className={classes.navbar}>
                     <ul className={classes.nav__items}>
                         <li className={classes.logo}><NavLink to="/">Sif-Server</NavLink></li>
-                        <li className={classes.search}><input type="text" placeholder="Search" /></li>
+                        <li className={classes.search}><input onChange={this.setSearchBar} value={this.state.valor} type="text" placeholder="Search" /></li>
                         <li className={classes.links}><NavLink to="/cadastro-vt">ADD+</NavLink></li>
                         <li className={classes.links+' '+classes.list_1}>
                             <span className={classes.link__user}>Usuario</span>
@@ -46,16 +46,10 @@ class Toolbar extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        filtro: state.filtro.search
-    }
-}
-
 const mapDispatchToProps = dispatch => {
     return {
-        onSearchValue: (value) => dispatch(fetchSearch(value))
+        onSearchResult: (value) => dispatch(fetchSearchResult(value))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+export default connect(null, mapDispatchToProps)(Toolbar);

@@ -1,29 +1,25 @@
 import React, { Component } from 'react';
-import axios from '../../axios-order';
 import { connect } from 'react-redux';
+import { fetchSearch } from '../../store/actions/busca';
 
 import classes from './Dashboard.css';
 import Item from './Item/Item';
 
 class Dashboard extends Component {
 
-    state = {
-        itens: []
-    }
-
     componentDidMount () {
-        axios.get('api/vt').then(res => {
-            this.setState({itens: res.data});
-        })
-        .catch(err => console.log(err));
+        this.props.onSearchValue();
     }
 
     render() {
-        console.log(this.props.filtro);
-        const itens = this.state.itens;
+        console.log(this.props.filtro)
+        const itens = this.props.filtro;
+        const searchResult = itens.filter(obj => {
+            return obj.nomevt.toLowerCase().search(this.props.valor.toLowerCase()) >= 0;
+        });
         let compItens = null
-        if (itens) {
-            compItens = itens.map((item, index) => (
+        if (searchResult) {
+            compItens = searchResult.map((item, index) => (
                                 <Item
                                     key={item._id}
                                     id={item._id}
@@ -43,8 +39,15 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => {
     return {
-        filtro: state.filtro.search
+        filtro: state.filtro.search,
+        valor: state.filtro.valor
     }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = dispatch => {
+    return {
+        onSearchValue: (value) => dispatch(fetchSearch(value))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
