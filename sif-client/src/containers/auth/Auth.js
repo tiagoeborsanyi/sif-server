@@ -6,8 +6,25 @@ import * as actions from '../../store/actions/index';
 
 class Auth extends Component {
 
-    submitHandler = () => {
-        // event.preventDefault();
+    state = {
+        cadastro: {
+            nome: '',
+            email: '',
+            pass1: '',
+            pass2: ''
+        }
+    }
+
+    setChangeValue = (event) => {
+        const updateCadastro = {
+            ...this.state.cadastro
+        }
+        updateCadastro[event.target.name] = event.target.value;
+        this.setState({cadastro: updateCadastro});
+    }
+
+    submitHandler = (event) => {
+        event.preventDefault();
         this.props.onAuth('teste', '123');
     }
 
@@ -19,23 +36,22 @@ class Auth extends Component {
                     <form>
                         <div>
                             <label>Nome</label>
-                            <input type="text" placeholder="Nome" />
-                        </div>
-                        <div>
-                            <label>Setor</label>
-                            <input type="text" placeholder="Setor" />
+                            <input onChange={this.setChangeValue} value={this.state.cadastro.nome} name="nome" type="text" placeholder="Nome" />
                         </div>
                         <div>
                             <label>E-mail</label>
-                            <input type="text" placeholder="e-mail" />
+                            <input onChange={this.setChangeValue} value={this.state.cadastro.email} name="email" type="text" placeholder="e-mail" />
                         </div>
                         <div>
                             <label>Senha</label>
-                            <input type="password" placeholder="senha" />
+                            <input onChange={this.setChangeValue} value={this.state.cadastro.pass1} name="pass1" type="password" placeholder="senha" />
+                        </div>
+                        <div>
+                            <label>Repita a Senha</label>
+                            <input onChange={this.setChangeValue} value={this.state.cadastro.pass2} name="pass2" type="password" placeholder="senha" />
                         </div>
                         <button onClick={this.submitHandler}>Cadastrar</button>
                     </form>
-                    <button onClick={this.submitHandler}>test</button>
                 </div>
             </div>
         );
