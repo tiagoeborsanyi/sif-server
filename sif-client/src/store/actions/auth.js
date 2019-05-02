@@ -1,4 +1,4 @@
-// import axios from '../../axios-order';
+import axios from '../../axios-order';
 
 import * as actionTypes from './actionTypes';
 
@@ -8,10 +8,10 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (authData) => {
+export const authSuccess = (nome) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        authData: authData
+        nome: nome
     };
 };
 
@@ -22,14 +22,23 @@ export const authFail = (error) => {
     };
 };
 
-export const auth = (email, password) => {
+export const auth = (nome, email, pass1, pass2) => {
     return dispatch => {
         dispatch(authStart());
         const authData = {
+            name: nome,
             email: email,
-            password: password
+            password: pass1,
+            password2: pass2
         }
+        axios.post('api/users/register', authData)
+            .then(res => {
+                console.log(res.data);
+                dispatch(authSuccess(res.data.name));
+            })
+            .catch(err => {
+                console.log(err.response)
+            });
         console.log(authData);
-        dispatch(authSuccess(authData));
     }
 }

@@ -21,11 +21,12 @@ class Auth extends Component {
         }
         updateCadastro[event.target.name] = event.target.value;
         this.setState({cadastro: updateCadastro});
+        
     }
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onAuth('teste', '123');
+        this.props.onAuth(this.state.cadastro.nome, this.state.cadastro.email, this.state.cadastro.pass1, this.state.cadastro.pass2);
     }
 
     render () {
@@ -60,7 +61,7 @@ class Auth extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, password) => dispatch(actions.auth(email, password))
+        onAuth: (nome, email, pass1, pass2) => dispatch(actions.auth(nome, email, pass1, pass2))
     }
 }
 
