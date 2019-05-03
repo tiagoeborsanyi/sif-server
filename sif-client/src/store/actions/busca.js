@@ -16,10 +16,10 @@ export const fetchSearchSuccess = (buscas) => {
     }
 }
 
-export const fetchSearch = () => {
+export const fetchSearch = (token) => {
     return dispatch => {
         const fetchBusca = [];
-        axios.get('api/vt').then(res => {
+        axios.get('api/vt', { headers: {"Authorization" : token} }).then(res => {
             fetchBusca.push(...res.data);
             dispatch(fetchSearchStart(fetchBusca));
         })

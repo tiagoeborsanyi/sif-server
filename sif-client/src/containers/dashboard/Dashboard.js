@@ -8,7 +8,7 @@ import Item from './Item/Item';
 class Dashboard extends Component {
 
     componentDidMount () {
-        this.props.onSearchValue();
+        this.props.onSearchValue(this.props.token);
     }
 
     render() {
@@ -40,13 +40,14 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
     return {
         filtro: state.filtro.search,
-        valor: state.filtro.valor
+        valor: state.filtro.valor,
+        token: state.auth.token
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSearchValue: (value) => dispatch(fetchSearch(value))
+        onSearchValue: (token) => dispatch(fetchSearch(token))
     }
 }
 

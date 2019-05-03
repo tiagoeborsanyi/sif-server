@@ -12,6 +12,10 @@ class Login extends Component {
         }
     }
 
+    componentDidMount () {
+        console.log('DidMount')
+    }
+
     setChangeLogin = (event) => {
         const updateLogin = {
             ...this.state.login
