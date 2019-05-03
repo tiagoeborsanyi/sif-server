@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../../axios-order';
+import { connect } from 'react-redux';
 
 import classes from './VisualizaVt.css';
 
@@ -15,7 +16,7 @@ class Viewvt extends Component {
     componentDidMount () {
         if (this.state.update) {
             const id = this.props.location.hash.slice(1);
-            axios.get(`/api/vt/${id}`)
+            axios.get(`/api/vt/${id}`, { headers: {"Authorization" : this.props.token} })
                 .then(res => {
                     this.setState({vt: res.data, update: false});
                     console.log(res.data);
@@ -206,4 +207,10 @@ class Viewvt extends Component {
     }
 }
 
-export default Viewvt;
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token
+    }
+}
+
+export default connect(mapStateToProps)(Viewvt);

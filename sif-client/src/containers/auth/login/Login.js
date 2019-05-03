@@ -14,7 +14,9 @@ class Login extends Component {
     }
 
     componentDidMount () {
-        console.log('DidMount Login')
+        if (this.props.isAuth) {
+            this.props.setLoginRedirect();
+        }
     }
 
     setChangeLogin = (event) => {
@@ -76,7 +78,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onLogin: (email, pass) => dispatch(actions.login(email, pass))
+        onLogin: (email, pass) => dispatch(actions.login(email, pass)),
+        onSetRedirect: () => dispatch(actions.setLoginRedirect('/'))
     }
 }
 
