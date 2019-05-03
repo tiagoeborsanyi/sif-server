@@ -14,9 +14,20 @@ const authSuccess = (state, action) => {
     });
 }
 
+const loginSuccess = (state, action) => {
+    return updateObject(state, {
+        isAuthenticate: true,
+        token: action.token,
+        nome: action.nome,
+        userId: action.userId,
+        avatar: action.avatar
+    })
+}
+
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
+        case actionTypes.LOGIN_SUCCESS: return loginSuccess(state, action);
         default: return state;
     }
 }

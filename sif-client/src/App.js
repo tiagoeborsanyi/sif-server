@@ -9,6 +9,7 @@ import VisualizaVt from './containers/vt/Visualiza/VisualizaVt';
 import Auth from './containers/auth/Auth';
 import EditFita from './containers/vt/historico/fita/EditFita';
 import EditHd from './containers/vt/historico/hd/EditHd';
+import Login from './containers/auth/login/Login';
 
 class App extends Component {
   render() {
@@ -21,7 +22,8 @@ class App extends Component {
             <Route path="/visualiza-vt" component={VisualizaVt} />
             <Route path="/edita-fita" component={EditFita}    />
             <Route path="/edita-hd" component={EditHd}    />
-            <Route path="/" exact component={Dashboard} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/" component={Login} />
           </Switch>
         </Layout>
       </div>

@@ -22,6 +22,29 @@ export const authFail = (error) => {
     };
 };
 
+export const loginStart = () => {
+    return {
+        type: actionTypes.LOGIN_START
+    };
+};
+
+export const loginSuccess = (response) => {
+    return {
+        type: actionTypes.LOGIN_SUCCESS,
+        token: response.token,
+        nome: response.user.name,
+        userId: response.user.id,
+        avatar: response.user.avatar
+    };
+};
+
+export const loginFail = (error) => {
+    return {
+        type: actionTypes.LOGIN_FAIL,
+        error: error
+    };
+};
+
 export const auth = (nome, email, pass1, pass2) => {
     return dispatch => {
         dispatch(authStart());
@@ -39,6 +62,24 @@ export const auth = (nome, email, pass1, pass2) => {
             .catch(err => {
                 console.log(err.response)
             });
-        console.log(authData);
     }
 }
+
+export const login = (email, pass) => {
+    return dispatch => {
+        dispatch(loginStart());
+        const authLogin = {
+            email: email,
+            password: pass
+        }
+        axios.post('api/users/login', authLogin)
+            .then(res => {
+                console.log(res.data);
+                dispatch(loginSuccess(res.data))
+            })
+            .catch(err => {
+                console.log(err.response);
+                dispatch(loginFail(err.response));
+            });
+    }
+};

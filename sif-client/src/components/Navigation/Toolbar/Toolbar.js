@@ -16,12 +16,15 @@ class Toolbar extends Component {
     }
 
     render () {
+        let auth = this.props.isAuth;
         return (
             <div>
+            { auth 
+            ? 
             <header>
                 <nav className={classes.navbar}>
                     <ul className={classes.nav__items}>
-                        <li className={classes.logo}><NavLink to="/">Sif-Server</NavLink></li>
+                        <li className={classes.logo}><NavLink to="/dashboard">Sif-Server</NavLink></li>
                         <li className={classes.search}><input onChange={this.setSearchBar} value={this.state.valor} type="text" placeholder="Search" /></li>
                         <li className={classes.links}><NavLink to="/cadastro-vt">ADD+</NavLink></li>
                         <li className={classes.links+' '+classes.list_1}>
@@ -40,9 +43,15 @@ class Toolbar extends Component {
                         </li>
                     </ul>
                 </nav>
-            </header>
+            </header> : null }
             </div>
         );
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.isAuthenticate
     }
 }
 
@@ -52,4 +61,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Toolbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);

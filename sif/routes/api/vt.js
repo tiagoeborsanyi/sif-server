@@ -18,7 +18,7 @@ router.get('/test', (req, res) => res.json({ msg: 'API vt Works' }));
 // @access  Private
 router.get(
     '/',
-    // passport.authenticate('jwt', { session: false }), 
+    passport.authenticate('jwt', { session: false }), 
     (req, res) => {
     Vt.find()
         .sort({ date: -1 })
@@ -31,10 +31,10 @@ router.get(
 // @access  Private
 router.post(
     '/',
-    // passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
       const { errors, isValid } = validatevt(req.body);
-  
+
       // Check Validation
       if (!isValid) {
         // If any errors, send 400 with errors object
@@ -68,7 +68,7 @@ router.post(
         baia8: req.body.hds[7].baia8
       }
       // console.log(tempvt, req.body);
-  
+
       const newvt = new Vt(tempvt);
       const _id = req.body._id;
 
@@ -83,7 +83,7 @@ router.post(
           console.log(err);
           res.status(400).json({erro: 'erro para gravar vt'})
         });
-      }      
+      }
     }
 );
 
@@ -92,7 +92,7 @@ router.post(
 // @access  Private
 router.post(
     '/fita/:id',
-    // passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
       const id = req.params.id;
       // console.log(req.body);
@@ -122,7 +122,7 @@ router.post(
 // @access  Private
 router.post(
   '/hd/:id',
-  // passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
       const id = req.params.id;
       // console.log(req.body);
@@ -152,8 +152,8 @@ router.post(
 // @desc    Get vt by id
 // @access  Private
 router.get(
-    '/:id', 
-    // passport.authenticate('jwt', { session: false }), 
+    '/:id',
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
       Vt.findById(req.params.id)
         .then(vt => res.json(vt))
@@ -161,13 +161,13 @@ router.get(
           res.status(404).json({ vtnotfound: 'vt não encontrada' })
         );
   });
-  
+
   // @route   DELETE api/vt/:id
   // @desc    Delete vt
   // @access  Private
   router.delete(
     '/:id',
-    // passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
         Vt.findById(req.params.id)
           .then(vt => {
