@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import * as actions from '../../../store/actions/index';
 
 import classes from './Login.css';
@@ -13,7 +14,7 @@ class Login extends Component {
     }
 
     componentDidMount () {
-        console.log('DidMount')
+        console.log('DidMount Login')
     }
 
     setChangeLogin = (event) => {
@@ -30,8 +31,13 @@ class Login extends Component {
     }
 
     render () {
+        let loginRedirect = null;
+        if (this.props.isAuth) {
+            loginRedirect = <Redirect to={this.props.loginRedirectPath} />
+        }
         return (
             <div className={classes.container}>
+                {loginRedirect}
                 <div className={classes.login}>
                     <div className={classes.titulo}><h1>Sif-Server</h1></div>
                     <form onSubmit={this.submitLogin}>
@@ -61,10 +67,17 @@ class Login extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.isAuthenticate,
+        loginRedirectPath: state.auth.loginRedirectPath
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         onLogin: (email, pass) => dispatch(actions.login(email, pass))
     }
 }
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -10,6 +10,10 @@ class Toolbar extends Component {
         valor: ''
     }
 
+    componentDidMount () {
+        console.log('DidMount navbar')
+    }
+
     setSearchBar = (event) => {
         this.setState({valor: event.target.value});
         this.props.onSearchResult(event.target.value);

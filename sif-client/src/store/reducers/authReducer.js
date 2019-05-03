@@ -5,7 +5,8 @@ const initialState = {
     isAuthenticate: false,
     token: null,
     nome: null,
-    userId: null
+    userId: null,
+    loginRedirectPath: '/dashboard'
 }
 
 const authSuccess = (state, action) => {
@@ -24,10 +25,17 @@ const loginSuccess = (state, action) => {
     })
 }
 
+const setLoginRedirectPath = (state, action) => {
+    return updateObject(state, {
+        loginRedirectPath: action.path
+    })
+}
+
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
         case actionTypes.LOGIN_SUCCESS: return loginSuccess(state, action);
+        case actionTypes.SET_LOGIN_REDIRECT_PATH: return setLoginRedirectPath(state, action);
         default: return state;
     }
 }

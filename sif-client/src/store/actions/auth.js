@@ -83,3 +83,10 @@ export const login = (email, pass) => {
             });
     }
 };
+
+export const setLoginRedirect = (path) => {
+    return {
+        type: actionTypes.SET_LOGIN_REDIRECT_PATH,
+        path: path
+    }
+}
