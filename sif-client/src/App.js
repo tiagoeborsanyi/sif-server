@@ -10,6 +10,9 @@ import Auth from './containers/auth/Auth';
 import EditFita from './containers/vt/historico/fita/EditFita';
 import EditHd from './containers/vt/historico/hd/EditHd';
 import Login from './containers/auth/login/Login';
+import Perfil from './containers/auth/perfil/Perfil';
+import EditCadastro from './containers/auth/editCadastro/EditCadastro';
+import EditSenha from './containers/auth/editSenha/EditSenha';
 
 class App extends Component {
   render() {
@@ -23,6 +26,9 @@ class App extends Component {
             <Route path="/edita-fita" component={EditFita}    />
             <Route path="/edita-hd" component={EditHd}    />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/perfil" component={Perfil} />
+            <Route path="/edita-cadastro" component={EditCadastro} />
+            <Route path="/edita-senha" component={EditSenha} />
             <Route path="/" component={Login} />
           </Switch>
         </Layout>

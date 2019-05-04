@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
 
 const initialState = {
-    isAuthenticate: false,
+    // Depois que criar as paginas de perfil, alterar senha e alterar cadastro de user, tenho que mudar isso
+    isAuthenticate: true,
     token: null,
     nome: null,
     userId: null,

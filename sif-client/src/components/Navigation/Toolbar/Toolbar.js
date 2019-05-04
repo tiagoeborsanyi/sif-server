@@ -10,10 +10,6 @@ class Toolbar extends Component {
         valor: ''
     }
 
-    componentDidMount () {
-        console.log('DidMount navbar')
-    }
-
     setSearchBar = (event) => {
         this.setState({valor: event.target.value});
         this.props.onSearchResult(event.target.value);
@@ -35,7 +31,7 @@ class Toolbar extends Component {
                             <span className={classes.link__user}>Usuario</span>
                             <ul>
                                 <li>
-                                    <NavLink to="/perfil-user">Perfil</NavLink>
+                                    <NavLink to="/perfil">Perfil</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/cadastro-user">Cadastrar</NavLink>
