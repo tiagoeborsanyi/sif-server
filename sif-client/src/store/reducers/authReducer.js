@@ -3,9 +3,10 @@ import { updateObject } from '../utility';
 
 const initialState = {
     // Depois que criar as paginas de perfil, alterar senha e alterar cadastro de user, tenho que mudar isso
-    isAuthenticate: true,
+    isAuthenticate: false,
     token: null,
     nome: null,
+    email: null,
     userId: null,
     loginRedirectPath: '/dashboard'
 }
@@ -21,6 +22,7 @@ const loginSuccess = (state, action) => {
         isAuthenticate: true,
         token: action.token,
         nome: action.nome,
+        email: action.email,
         userId: action.userId,
         avatar: action.avatar
     })

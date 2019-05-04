@@ -33,6 +33,7 @@ export const loginSuccess = (response) => {
         type: actionTypes.LOGIN_SUCCESS,
         token: response.token,
         nome: response.user.name,
+        email: response.email,
         userId: response.user.id,
         avatar: response.user.avatar
     };
@@ -74,6 +75,8 @@ export const login = (email, pass) => {
         }
         axios.post('api/users/login', authLogin)
             .then(res => {
+                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('userId', res.data.user.id);
                 console.log(res.data);
                 dispatch(loginSuccess(res.data))
             })
@@ -88,5 +91,11 @@ export const setLoginRedirect = (path) => {
     return {
         type: actionTypes.SET_LOGIN_REDIRECT_PATH,
         path: path
+    }
+}
+
+export const authCheckState = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token');
     }
 }
