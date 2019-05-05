@@ -12,7 +12,6 @@ class Dashboard extends Component {
     }
 
     render() {
-        console.log(this.props.filtro)
         const itens = this.props.filtro;
         const searchResult = itens.filter(obj => {
             return obj.nomevt.toLowerCase().search(this.props.valor.toLowerCase()) >= 0;

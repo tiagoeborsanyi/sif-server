@@ -51,7 +51,7 @@ class Toolbar extends Component {
 
 const mapStateToProps = state => {
     return {
-        isAuth: state.auth.isAuthenticate
+        isAuth: state.auth.token !== null
     }
 }
 

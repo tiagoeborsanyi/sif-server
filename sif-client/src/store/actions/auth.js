@@ -94,8 +94,30 @@ export const setLoginRedirect = (path) => {
     }
 }
 
+export const checkSuccess = (token, userId) => {
+    return {
+        type:actionTypes.CHECK_SUCCESS,
+        token: token,
+        userId: userId
+    }
+}
+
 export const authCheckState = () => {
     return dispatch => {
         const token = localStorage.getItem('token');
+        if (!token) {
+
+        } else {
+           const userId = localStorage.getItem('userId');
+           dispatch(checkSuccess(token, userId)); 
+        }
+    }
+}
+
+export const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    return {
+        type: actionTypes.AUTH_LOGOUT
     }
 }

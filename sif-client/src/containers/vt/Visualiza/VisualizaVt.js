@@ -19,7 +19,6 @@ class Viewvt extends Component {
             axios.get(`/api/vt/${id}`, { headers: {"Authorization" : this.props.token} })
                 .then(res => {
                     this.setState({vt: res.data, update: false});
-                    console.log(res.data);
                 })
                 .catch(err => console.log(err));
         }
@@ -27,9 +26,8 @@ class Viewvt extends Component {
 
     deleteVt = () => {
         const id = this.props.location.hash.slice(1);
-        axios.delete(`/api/vt/${id}`)
+        axios.delete(`/api/vt/${id}`, { headers: {"Authorization" : this.props.token} })
             .then(res => {
-                console.log(res);
                 this.props.history.push('/');
             })
             .catch(err => console.log(err));
@@ -91,7 +89,6 @@ class Viewvt extends Component {
             newHd = Object.entries(this.state.vt.hds).map((hd, index) => (
                 this.setHds(hd[1], index)
             ));
-            // console.log(this.state.vt.hds)
         }
         if (this.state.vt.historicosituacaohd) {
             const arrHd = this.state.vt.historicosituacaohd;
@@ -153,7 +150,6 @@ class Viewvt extends Component {
                 );
             }
         }
-        console.log(this.props);
         return (
             <div className={classes.container}>
             <div className={classes.content__botao}>

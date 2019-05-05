@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../../../axios-order';
+import { connect } from 'react-redux';
 
 import classes from './EditHd.css';
 
@@ -18,16 +19,13 @@ class EditHd extends Component {
         }
         objHd[event.target.name] = event.target.value;
         this.setState({hd: objHd});
-        console.log(objHd);
     }
 
     cadastraHistHd = (event) => {
         event.preventDefault();
-        // console.log(this.state.fita);
         const id = this.props.location.hash.slice(1);
-        axios.post(`api/vt/hd/${id}`, this.state.hd)
+        axios.post(`api/vt/hd/${id}`, this.state.hd, { headers: {"Authorization" : this.props.token} })
             .then(res => {
-                // console.log(res);
                 this.props.history.goBack();
             })
             .catch(error => {
@@ -81,4 +79,10 @@ class EditHd extends Component {
     }
 }
 
-export default EditHd;
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token
+    }
+}
+
+export default connect(mapStateToProps)(EditHd);

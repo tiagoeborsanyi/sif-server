@@ -28,6 +28,20 @@ const loginSuccess = (state, action) => {
     })
 }
 
+const checkoutSuccess = (state, action) => {
+    return updateObject(state, {
+        token: action.token,
+        userId: action.userId
+    })
+}
+
+const logout = (state, action) => {
+    return updateObject(state, {
+        token: null,
+        userId: null
+    })
+}
+
 const setLoginRedirectPath = (state, action) => {
     return updateObject(state, {
         loginRedirectPath: action.path
@@ -39,6 +53,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
         case actionTypes.LOGIN_SUCCESS: return loginSuccess(state, action);
         case actionTypes.SET_LOGIN_REDIRECT_PATH: return setLoginRedirectPath(state, action);
+        case actionTypes.CHECK_SUCCESS: return checkoutSuccess(state, action);
+        case actionTypes.AUTH_LOGOUT: return logout(state, action);
         default: return state;
     }
 }

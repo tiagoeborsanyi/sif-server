@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../../../axios-order';
+import { connect } from 'react-redux';
 
 import classes from './EditFita.css';
 
@@ -22,16 +23,13 @@ class EditFita extends Component {
         }
         objFita[event.target.name] = event.target.value;
         this.setState({fita: objFita});
-        // console.log(objFita);
     }
 
     cadastraHistFita = (event) => {
         event.preventDefault();
-        // console.log(this.state.fita);
         const id = this.props.location.hash.slice(1);
-        axios.post(`api/vt/fita/${id}`, this.state.fita)
+        axios.post(`api/vt/fita/${id}`, this.state.fita, { headers: {"Authorization" : this.props.token} })
             .then(res => {
-                // console.log(res);
                 this.props.history.goBack();
             })
             .catch(error => {
@@ -69,4 +67,10 @@ class EditFita extends Component {
     }
 }
 
-export default EditFita;
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token
+    }
+}
+
+export default connect(mapStateToProps)(EditFita);

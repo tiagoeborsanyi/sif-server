@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../../axios-order';
+import { connect } from 'react-redux';
 
 import CadastroVt from '../../../components/CadastroVt/CadastroVt';
 
@@ -71,7 +72,7 @@ class Editarvt extends Component {
     componentDidMount() {
         if (this.state.update) {
             const id = this.props.location.hash.slice(1);
-            axios.get(`/api/vt/${id}`)
+            axios.get(`/api/vt/${id}`, { headers: {"Authorization" : this.props.token} })
                 .then(res => {
                     let updateCadastro =  {
                         _id: res.data._id,
@@ -159,19 +160,16 @@ class Editarvt extends Component {
         let updateObjElement = {
             ...updateObjItem[event.target.name]
         }
-        // console.log(updateObjElement[+event.target.id.substring(4)-1]);
         updateObjElement[+event.target.id.substring(4)-1][event.target.id] = event.target.value;
         updateObjItem[event.target.name] = updateObjElement;
         this.setState({cadastro: updateObjItem});
-        // console.log('event.target.value', event.target, updateObjItem);
     }
 
     cadastraVt = (event) => {
         event.preventDefault();
         console.log(this.state.cadastro);
-        axios.post('api/vt', this.state.cadastro)
+        axios.post('api/vt', this.state.cadastro, { headers: {"Authorization" : this.props.token} })
             .then(res => {
-                console.log(res);
                 this.props.history.push('/');
             })
             .catch(error => {
@@ -199,4 +197,10 @@ class Editarvt extends Component {
     }
 }
 
-export default Editarvt;
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token
+    }
+}
+
+export default connect(mapStateToProps)(Editarvt);
