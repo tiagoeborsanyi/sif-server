@@ -2,23 +2,25 @@
     margin-top: 100px;
 }
 
-.container p,
-.container button {
+.container p {
     margin: auto;
     text-align: center;
 }
 
-.container button {
-    display: flex;
+.container a {
+    width: 150px;
+    display: block;
     margin: 10px auto;
     padding: 5px;
     background: green;
     color: white;
     border-radius: 5px;
     border: 1px solid #ccc;
+    text-decoration: none;
+    text-align: center;
 }
 
-.container button:hover {
+.container a:hover {
     cursor: pointer;
     background: white;
     color: green;
