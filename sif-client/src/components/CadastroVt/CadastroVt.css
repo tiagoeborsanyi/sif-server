@@ -49,6 +49,7 @@ select {
     color: green;
     font-weight: bold;
     padding: 6px;
+    -webkit-appearance: none;
 }
 
 .discos {
