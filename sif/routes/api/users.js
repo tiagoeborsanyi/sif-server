@@ -146,10 +146,10 @@ router.post(
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(password, salt, (err, hash) => {
             if (err) throw err;
-            password = hash;
+            const newPassword = hash;
             User.findByIdAndUpdate(
               { _id },
-              { $set: { password: password } }
+              { $set: { password: newPassword } }
             ).exec().then(vt => res.status(200).json(vt));
         });
       });
