@@ -176,7 +176,6 @@ class Viewvt extends Component {
                     <div className={classes.container_hd__descricao_situacao}><span>Foi recolhido os 4 discos:</span>  {this.state.vt.quatrodiscos}</div>
                 </div>
                 <hr />
-                <div className={classes.container_hd__descricao_situacao}>HD's situação: <div className={classes.container_hd__situação}></div></div>
                 <div className={classes.container_hd__historico_troca}>
                     <h3>Status dos HD's</h3>
                     <div className={classes.hd_status__content}>
