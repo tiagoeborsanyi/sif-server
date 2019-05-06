@@ -129,4 +129,32 @@ router.get(
   }
 );
 
+router.post(
+  '/editpass',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    const _id = req.body.id;
+    // Find user by email
+    User.findOne({ email }).then(user => {
+      // Check for user
+      if (!user) {
+        errors.email = 'User not found';
+        return res.status(404).json(errors);
+      }
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(password, salt, (err, hash) => {
+            if (err) throw err;
+            password = hash;
+            User.findByIdAndUpdate(
+              { _id },
+              { $set: { password: password } }
+            ).exec().then(vt => res.status(200).json(vt));
+        });
+      });
+    });
+  }
+);
+
 module.exports = router;

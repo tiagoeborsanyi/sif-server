@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from '../../../axios-order';
+// import axios from '../../../axios-order';
 import { connect } from 'react-redux';
 
 import classes from './EditCadastro.css';

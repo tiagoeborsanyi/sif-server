@@ -37,6 +37,7 @@ export const loginSuccess = (response) => {
         userId: response.user.id,
         avatar: response.user.avatar
     };
+    
 };
 
 export const loginFail = (error) => {
@@ -108,8 +109,8 @@ export const authCheckState = () => {
         if (!token) {
 
         } else {
-           const userId = localStorage.getItem('userId');
-           dispatch(checkSuccess(token, userId)); 
+            const userId = localStorage.getItem('userId');
+            dispatch(checkSuccess(token, userId));
         }
     }
 }
