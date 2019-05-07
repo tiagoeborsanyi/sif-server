@@ -16,6 +16,13 @@ export const fetchSearchSuccess = (buscas) => {
     }
 }
 
+export const buscaFail = (error) => {
+    return {
+        type: actionTypes.SEARCH_FAIL,
+        errorBusca: error
+    };
+};
+
 export const fetchSearch = (token) => {
     return dispatch => {
         const fetchBusca = [];
@@ -23,7 +30,10 @@ export const fetchSearch = (token) => {
             fetchBusca.push(...res.data);
             dispatch(fetchSearchStart(fetchBusca));
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            dispatch(buscaFail(err.response));
+        });
     }
 }
 

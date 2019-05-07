@@ -29,7 +29,6 @@ class Perfil extends Component {
             <div className={classes.container}>
                 <p>nome: { this.state.name }</p>
                 <p>email: {this.state.email }</p>
-                <Link to="/edita-cadastro">Editar cadastro</Link>
                 <Link to="/edita-senha">Alterar senha</Link>
             </div>
         );

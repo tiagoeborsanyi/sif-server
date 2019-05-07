@@ -5,24 +5,18 @@ const initialState = {
     // Depois que criar as paginas de perfil, alterar senha e alterar cadastro de user, tenho que mudar isso
     isAuthenticate: false,
     token: null,
-    nome: null,
-    email: null,
     userId: null,
     loginRedirectPath: '/dashboard'
 }
 
 const authSuccess = (state, action) => {
-    return updateObject(state, {
-        nome: action.nome
-    });
+    return updateObject(state, {});
 }
 
 const loginSuccess = (state, action) => {
     return updateObject(state, {
         isAuthenticate: true,
         token: action.token,
-        nome: action.nome,
-        email: action.email,
         userId: action.userId,
         avatar: action.avatar
     })
@@ -38,7 +32,9 @@ const checkoutSuccess = (state, action) => {
 const logout = (state, action) => {
     return updateObject(state, {
         token: null,
-        userId: null
+        userId: null,
+        isAuthenticate: false,
+        loginRedirectPath: '/'
     })
 }
 

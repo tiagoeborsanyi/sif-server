@@ -8,17 +8,16 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (nome) => {
+export const authSuccess = () => {
     return {
-        type: actionTypes.AUTH_SUCCESS,
-        nome: nome
+        type: actionTypes.AUTH_SUCCESS
     };
 };
 
 export const authFail = (error) => {
     return {
         type: actionTypes.AUTH_FAIL,
-        error: error
+        errorAuth: error
     };
 };
 
@@ -32,19 +31,10 @@ export const loginSuccess = (response) => {
     return {
         type: actionTypes.LOGIN_SUCCESS,
         token: response.token,
-        nome: response.user.name,
-        email: response.email,
         userId: response.user.id,
         avatar: response.user.avatar
     };
     
-};
-
-export const loginFail = (error) => {
-    return {
-        type: actionTypes.LOGIN_FAIL,
-        error: error
-    };
 };
 
 export const auth = (nome, email, pass1, pass2) => {
@@ -59,10 +49,11 @@ export const auth = (nome, email, pass1, pass2) => {
         axios.post('api/users/register', authData)
             .then(res => {
                 console.log(res.data);
-                dispatch(authSuccess(res.data.name));
+                dispatch(authSuccess());
             })
             .catch(err => {
                 console.log(err.response)
+                dispatch(authFail(err.response));
             });
     }
 }
@@ -83,7 +74,7 @@ export const login = (email, pass) => {
             })
             .catch(err => {
                 console.log(err.response);
-                dispatch(loginFail(err.response));
+                dispatch(authFail(err.response));
             });
     }
 };
