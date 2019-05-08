@@ -8,9 +8,10 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = () => {
+export const authSuccess = (dados) => {
     return {
-        type: actionTypes.AUTH_SUCCESS
+        type: actionTypes.AUTH_SUCCESS,
+        dados: dados
     };
 };
 
@@ -49,7 +50,7 @@ export const auth = (nome, email, pass1, pass2) => {
         axios.post('api/users/register', authData)
             .then(res => {
                 console.log(res.data);
-                dispatch(authSuccess());
+                dispatch(authSuccess(res.data));
             })
             .catch(err => {
                 dispatch(authFail(err.response));

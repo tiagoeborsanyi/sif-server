@@ -6,12 +6,13 @@ const initialState = {
     isAuthenticate: false,
     token: null,
     userId: null,
-    loginRedirectPath: '/dashboard'
+    loginRedirectPath: null,
+    dados: null
 }
 
 const authSuccess = (state, action) => {
     return updateObject(state, {
-        loginRedirectPath: '/dashboard'
+        dados: action.dados
     });
 }
 
