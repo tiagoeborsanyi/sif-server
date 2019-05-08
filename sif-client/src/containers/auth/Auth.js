@@ -34,6 +34,7 @@ class Auth extends Component {
     render () {
         if(this.props.dados !== null) {
             this.props.history.push('/dashboard');
+            this.props.setErrorFinish();
         }
         return (
             <div>
@@ -77,7 +78,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (nome, email, pass1, pass2) => dispatch(actions.auth(nome, email, pass1, pass2))
+        onAuth: (nome, email, pass1, pass2) => dispatch(actions.auth(nome, email, pass1, pass2)),
+        setErrorFinish: () => dispatch(actions.setErrorFinish())
     }
 }
 

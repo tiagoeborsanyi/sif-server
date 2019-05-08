@@ -56,9 +56,10 @@
 
 .login span {
     text-align: center;
-    color: green;
+    color: red;
+    font-weight: bold;
     display: block;
-    margin-top: 110px;
+    margin: 10px;
 }
 
 .login span:hover {

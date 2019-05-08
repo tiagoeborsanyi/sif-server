@@ -17,10 +17,17 @@ const authFail = (state, action) => {
     });
 }
 
+const errorFinish = (state, action) => {
+    return updateObject(state, {
+        error: null
+    });
+}
+
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.AUTH_FAIL: return authFail(state, action);
         case actionTypes.SEARCH_FAIL: return searchFail(state, action);
+        case actionTypes.ERROR_FINISH: return errorFinish(state, action);
         default: return state;
     }
 }

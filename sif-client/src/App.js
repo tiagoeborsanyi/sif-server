@@ -20,6 +20,7 @@ class App extends Component {
 
   componentDidMount () {
     this.props.onTryOutSignup();
+    this.props.setErrorFinish();
   }
 
   render() {
@@ -65,7 +66,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryOutSignup: () => dispatch(actions.authCheckState())
+    onTryOutSignup: () => dispatch(actions.authCheckState()),
+    setErrorFinish: () => dispatch(actions.setErrorFinish())
   }
 }
 

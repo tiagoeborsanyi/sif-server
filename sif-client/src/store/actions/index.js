@@ -11,3 +11,7 @@ export {
     fetchSearch,
     fetchSearchResult
 } from './busca';
+
+export {
+    setErrorFinish
+} from './error';

@@ -37,6 +37,9 @@ class Login extends Component {
         if (this.props.isAuth) {
             loginRedirect = <Redirect to={this.props.loginRedirectPath} />
         }
+        if(this.props.dados !== null) {
+            this.props.setErrorFinish();
+        }
         return (
             <div className={classes.container}>
                 {loginRedirect}
@@ -51,6 +54,7 @@ class Login extends Component {
                                 name="email" 
                                 type="email" 
                                 placeholder="e-mail" />
+                            <span>{this.props.error ? this.props.error.data.email : null}</span>
                         </div>
                         <div>
                             <label>Senha</label>
@@ -60,6 +64,7 @@ class Login extends Component {
                                 name="pass" 
                                 type="password" 
                                 placeholder="senha" />
+                            <span>{this.props.error ? this.props.error.data.password : null}</span>
                         </div>
                         <button>Entrar</button>
                     </form>
@@ -72,7 +77,9 @@ class Login extends Component {
 const mapStateToProps = state => {
     return {
         isAuth: state.auth.isAuthenticate,
-        loginRedirectPath: state.auth.loginRedirectPath
+        loginRedirectPath: state.auth.loginRedirectPath,
+        error: state.error.error,
+        dados: state.auth.dados
     }
 }
 
