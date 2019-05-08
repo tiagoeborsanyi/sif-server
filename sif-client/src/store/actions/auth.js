@@ -52,7 +52,6 @@ export const auth = (nome, email, pass1, pass2) => {
                 dispatch(authSuccess());
             })
             .catch(err => {
-                console.log(err.response)
                 dispatch(authFail(err.response));
             });
     }

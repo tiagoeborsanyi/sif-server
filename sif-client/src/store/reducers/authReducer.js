@@ -10,7 +10,9 @@ const initialState = {
 }
 
 const authSuccess = (state, action) => {
-    return updateObject(state, {});
+    return updateObject(state, {
+        loginRedirectPath: '/dashboard'
+    });
 }
 
 const loginSuccess = (state, action) => {
