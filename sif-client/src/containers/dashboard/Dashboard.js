@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSearch } from '../../store/actions/busca';
+import * as action from '../../store/actions/index';
 
 import classes from './Dashboard.css';
 import Item from './Item/Item';
@@ -9,6 +10,7 @@ class Dashboard extends Component {
 
     componentDidMount () {
         this.props.onSearchValue(this.props.token);
+        this.props.onAuthFinish();
     }
 
     render() {
@@ -46,7 +48,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSearchValue: (token) => dispatch(fetchSearch(token))
+        onSearchValue: (token) => dispatch(fetchSearch(token)),
+        onAuthFinish: () => dispatch(action.authFinish())
     }
 }
 

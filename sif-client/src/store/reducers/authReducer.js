@@ -47,9 +47,16 @@ const setLoginRedirectPath = (state, action) => {
     })
 }
 
+const setAuthFinish = (state, action) => {
+    return updateObject(state, {
+        dados: null
+    });
+}
+
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
+        case actionTypes.AUTH_FINISH: return setAuthFinish(state, action);
         case actionTypes.LOGIN_SUCCESS: return loginSuccess(state, action);
         case actionTypes.SET_LOGIN_REDIRECT_PATH: return setLoginRedirectPath(state, action);
         case actionTypes.CHECK_SUCCESS: return checkoutSuccess(state, action);

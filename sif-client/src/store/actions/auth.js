@@ -15,6 +15,12 @@ export const authSuccess = (dados) => {
     };
 };
 
+export const authFinish = dados => {
+    return {
+        type: actionTypes.AUTH_FINISH
+    }
+}
+
 export const authFail = (error) => {
     return {
         type: actionTypes.AUTH_FAIL,
