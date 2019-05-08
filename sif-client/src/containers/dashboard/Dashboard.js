@@ -10,7 +10,6 @@ class Dashboard extends Component {
 
     componentDidMount () {
         this.props.onSearchValue(this.props.token);
-        this.props.onAuthFinish();
     }
 
     render() {
@@ -48,8 +47,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSearchValue: (token) => dispatch(fetchSearch(token)),
-        onAuthFinish: () => dispatch(action.authFinish())
+        onSearchValue: (token) => dispatch(fetchSearch(token))
     }
 }
 

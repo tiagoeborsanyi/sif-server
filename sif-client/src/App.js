@@ -19,7 +19,6 @@ import Logout from './containers/auth/logout/Logout';
 class App extends Component {
 
   componentDidMount () {
-    this.props.setErrorFinish();
     this.props.onTryOutSignup();
   }
 
@@ -66,8 +65,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryOutSignup: () => dispatch(actions.authCheckState()),
-    setErrorFinish: () => dispatch(actions.setErrorFinish())
+    onTryOutSignup: () => dispatch(actions.authCheckState())
   }
 }
 
