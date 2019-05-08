@@ -15,6 +15,9 @@ class Auth extends Component {
         }
     }
 
+    componentDidMount () {
+        this.props.setErrorFinish();
+    }
 
     setChangeValue = (event) => {
         const updateCadastro = {

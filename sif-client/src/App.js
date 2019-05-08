@@ -19,8 +19,8 @@ import Logout from './containers/auth/logout/Logout';
 class App extends Component {
 
   componentDidMount () {
-    this.props.onTryOutSignup();
     this.props.setErrorFinish();
+    this.props.onTryOutSignup();
   }
 
   render() {

@@ -14,6 +14,7 @@ class Login extends Component {
     }
 
     componentDidMount () {
+        this.props.setErrorFinish();
         if (this.props.isAuth) {
             this.props.setLoginRedirect();
         }
@@ -36,9 +37,6 @@ class Login extends Component {
         let loginRedirect = null;
         if (this.props.isAuth) {
             loginRedirect = <Redirect to={this.props.loginRedirectPath} />
-        }
-        if(this.props.dados !== null) {
-            this.props.setErrorFinish();
         }
         return (
             <div className={classes.container}>
@@ -78,15 +76,15 @@ const mapStateToProps = state => {
     return {
         isAuth: state.auth.isAuthenticate,
         loginRedirectPath: state.auth.loginRedirectPath,
-        error: state.error.error,
-        dados: state.auth.dados
+        error: state.error.error
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onLogin: (email, pass) => dispatch(actions.login(email, pass)),
-        onSetRedirect: () => dispatch(actions.setLoginRedirect('/'))
+        onSetRedirect: () => dispatch(actions.setLoginRedirect('/')),
+        setErrorFinish: () => dispatch(actions.setErrorFinish())
     }
 }
 

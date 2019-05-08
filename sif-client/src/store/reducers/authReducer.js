@@ -21,8 +21,7 @@ const loginSuccess = (state, action) => {
         isAuthenticate: true,
         token: action.token,
         userId: action.userId,
-        avatar: action.avatar,
-        dados: action.avatar
+        avatar: action.avatar
     })
 }
 
