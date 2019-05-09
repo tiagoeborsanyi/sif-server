@@ -66,7 +66,8 @@ class Editarvt extends Component {
                 observacaovt: ''
             }
         },
-        update: true
+        update: true,
+        error: null
     }
 
     componentDidMount() {
@@ -135,7 +136,10 @@ class Editarvt extends Component {
                     this.setState({cadastro: updateCadastro, update: false});
                     console.log(res.data);
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err.response);
+                    this.setState({error: err.response});
+                });
         }
     }
 
@@ -167,13 +171,13 @@ class Editarvt extends Component {
 
     cadastraVt = (event) => {
         event.preventDefault();
-        console.log(this.state.cadastro);
         axios.post('api/vt', this.state.cadastro, { headers: {"Authorization" : this.props.token} })
             .then(res => {
                 this.props.history.push('/');
             })
             .catch(error => {
                 console.log(error.response.data);
+                this.setState({error: error.response.data});
             })
     }
 
@@ -192,7 +196,8 @@ class Editarvt extends Component {
                 observacaovt={this.state.cadastro.observacaovt}
                 changed={(event) => this.changedItem(event)}
                 changedhd={(event) => this.changedHd(event)} 
-                cadastravt={this.cadastraVt} />
+                cadastravt={this.cadastraVt}
+                err={this.state.error} />
         );
     }
 }

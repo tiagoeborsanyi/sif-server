@@ -55,7 +55,6 @@ export const auth = (nome, email, pass1, pass2) => {
         }
         axios.post('api/users/register', authData)
             .then(res => {
-                console.log(res.data);
                 dispatch(authSuccess(res.data));
             })
             .catch(err => {
@@ -75,11 +74,9 @@ export const login = (email, pass) => {
             .then(res => {
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('userId', res.data.user.id);
-                console.log(res.data);
                 dispatch(loginSuccess(res.data))
             })
             .catch(err => {
-                console.log(err.response);
                 dispatch(authFail(err.response));
             });
     }

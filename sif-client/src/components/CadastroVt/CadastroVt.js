@@ -13,6 +13,7 @@ class Cadastrovt extends Component {
         return (
             <div className={classes.container}>
                 <h2 className={classes.titleVt}>Cadastro de VT</h2>
+                <span className={classes.error__vtmigrada}>{this.props.err ? this.props.err.erro : null}</span>
                 <form onSubmit={this.props.cadastravt}>
                     <div className={classes.item}>
                         <label>Nome VT</label>
@@ -23,6 +24,7 @@ class Cadastrovt extends Component {
                             id="nomevt"
                             value={this.props.nomevt.nomevt} 
                             onChange={this.props.changed} />
+                        <span>{this.props.err ? this.props.err.nomevt : null}</span>
                         <label>Apelido VT</label>
                         <input 
                             className={(this.props.apelido.valid ? classes.valid : classes.invalid)} 
@@ -31,15 +33,19 @@ class Cadastrovt extends Component {
                             id="apelido"
                             value={this.props.apelido.apelido} 
                             onChange={this.props.changed} />
+                        <span>{this.props.err ? this.props.err.apelido : null}</span>
                     </div>
                     <div>
-                        <label className={classes.discos__600}>VT Migrada?</label>
-                        <Select 
-                            id="vtmigrada" 
-                            options={['SIM', 'NÃO']}
-                            name="vtmigrada"
-                            value={this.props.vtmigrada.vtmigrada}
-                            changed={this.props.changed} />
+                        <div className={classes.bloco__discos}>
+                            <label className={classes.discos__600}>VT Migrada?</label>
+                            <Select 
+                                id="vtmigrada" 
+                                options={['SIM', 'NÃO']}
+                                name="vtmigrada"
+                                value={this.props.vtmigrada.vtmigrada}
+                                changed={this.props.changed} />
+                        </div>
+                        <div className={classes.bloco__discos}>
                         <label className={classes.discos__4}>Unidade de Fita no local?</label>
                         <Select 
                             id="fitalocalidade" 
@@ -47,8 +53,11 @@ class Cadastrovt extends Component {
                             name="fitalocalidade"
                             value={this.props.fitalocalidade.fitalocalidade}
                             changed={this.props.changed} />
+                        </div>
+                        <span className={classes.error__vtmigrada}>{this.props.err ? this.props.err.vtmigrada : null}</span>
                     </div>
                     <div className={classes.discos}>
+                        <div className={classes.bloco__discos}>
                         <label className={classes.discos__600}>Disco de 600 baia 8?</label>
                         <Select 
                             id="disco600" 
@@ -56,6 +65,8 @@ class Cadastrovt extends Component {
                             name="disco600"
                             value={this.props.disco600.disco600}
                             changed={this.props.changed} />
+                        </div>
+                        <div className={classes.bloco__discos}>
                         <label className={classes.discos__4}>Recolhido os 4 discos?</label>
                         <Select 
                             id="quatrodiscos" 
@@ -63,6 +74,7 @@ class Cadastrovt extends Component {
                             name="quatrodiscos"
                             value={this.props.quatrodiscos.quatrodiscos}
                             changed={this.props.changed} />
+                        </div>
                     </div>
                     <div className={classes.item}>
                         <h3>Chamado do Assyst de retirada dos discos</h3>

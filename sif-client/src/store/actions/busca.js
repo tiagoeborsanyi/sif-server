@@ -31,7 +31,6 @@ export const fetchSearch = (token) => {
             dispatch(fetchSearchStart(fetchBusca));
         })
         .catch(err => {
-            console.log(err);
             dispatch(buscaFail(err.response));
         });
     }
