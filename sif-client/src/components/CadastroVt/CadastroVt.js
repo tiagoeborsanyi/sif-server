@@ -113,6 +113,7 @@ class Cadastrovt extends Component {
                     <br />
                     <br />
                     <br />
+                    <span className={classes.error__vtmigrada}>{this.props.err ? this.props.err.hd : null}</span>
         
                     <div className={classes.item__hd}>
                         <h3>HD's</h3>
@@ -227,7 +228,6 @@ class Cadastrovt extends Component {
                                 value={this.props.disponivelretiradadisco.disponivelretiradadisco}
                                 changed={this.props.changed} />   
                         </div>
-                        {/* aqui vai o codigo para historico de situação de HD's <HistoricoDiscos /> */}
                     </div>
 
                     <br />
