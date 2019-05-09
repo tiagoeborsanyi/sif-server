@@ -10,7 +10,8 @@ class EditFita extends Component {
         fita: {
             data: '',
             observacao: ''
-        }
+        },
+        error: null
     }
 
     voltar = () => {
@@ -34,6 +35,7 @@ class EditFita extends Component {
             })
             .catch(error => {
                 console.log(error.response.data);
+                this.setState({error: error.response});
             })
     }
 
@@ -51,6 +53,7 @@ class EditFita extends Component {
                                 name="data"
                                 value={this.state.fita.data}
                                 onChange={(event) => this.setChangeFita(event)} />
+                            <span>{this.state.error ? this.state.error.data.data : null}</span>
                         </div>
                         <div>
                             <label>Observação</label>
@@ -58,6 +61,7 @@ class EditFita extends Component {
                                 name="observacao"
                                 value={this.state.fita.observacao}
                                 onChange={event => this.setChangeFita(event)}></textarea>
+                        <span>{this.state.error ? this.state.error.data.observacao : null}</span>
                         </div>
                         <button onClick={this.cadastraHistFita}>Cadastrar</button>
                     </form>

@@ -99,17 +99,16 @@ router.post(
       const { errors, isValid } = validatefita(req.body);
 
       // Check Validation
+      console.log(isValid, typeof req.body.data);
       if (!isValid) {
         // If any errors, send 400 with errors object
         // console.log(errors);
         return res.status(400).json(errors);
       }
       const id = req.params.id;
-      // console.log(req.body);
 
       Vt.findById(id)
         .then(findVt => {
-          // console.log(findVt);
             findVt.historicotrocafita.unshift({
               date: req.body.data,
               observacao: req.body.observacao
@@ -118,11 +117,14 @@ router.post(
           Vt.findByIdAndUpdate(
             { _id },
             { $set: findVt }
-          ).exec().then(vt => res.status(200).json(vt));
+          ).exec().then(vt => res.status(200).json(vt)).catch(err => {
+            console.log(err);
+            res.stattus(400).json({erro: 'erro para gravar histórico de fita.'})
+          });
         })
         .catch(err => {
-          // console.log(err);
-          res.status(400).json({erro: 'erro para gravar histórico de fita.'})
+          console.log(err);
+          res.status(400).json({erro: 'erro para buscar a vt.'})
         });
     }
 );
@@ -139,11 +141,9 @@ router.post(
       // Check Validation
       if (!isValid) {
         // If any errors, send 400 with errors object
-        // console.log(errors);
         return res.status(400).json(errors);
       }
       const id = req.params.id;
-      // console.log(req.body);
 
       Vt.findById(id)
         .then(findVt => {

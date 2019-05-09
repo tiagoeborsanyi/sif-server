@@ -4,9 +4,9 @@ const isEmpty = require('./is-empty');
 module.exports = function validatehd (data) {
     let errors = {};
 
-    data.data = isEmpty(data.data) ? data.data : '';
-    data.baia = isEmpty(data.baia) ? data.baia : '';
-    data.observacao = isEmpty(data.observacao) ? data.observacao : '';
+    data.data = !isEmpty(data.data) ? data.data : '';
+    data.baia = !isEmpty(data.baia) ? data.baia : '';
+    data.observacao = !isEmpty(data.observacao) ? data.observacao : '';
 
     if (Validator.isEmpty(data.data)) {
         errors.data = 'Campo data é obrigatório.';
@@ -22,6 +22,6 @@ module.exports = function validatehd (data) {
 
     return {
         errors,
-        isValid: isEmpty(data)
+        isValid: isEmpty(errors)
     }
 }

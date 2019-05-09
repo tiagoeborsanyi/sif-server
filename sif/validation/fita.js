@@ -4,8 +4,8 @@ const isEmpty = require('./is-empty');
 module.exports = function validatefita (data) {
     let errors = {};
 
-    data.data = isEmpty(data.data) ? data.data : '';
-    data.observacao = isEmpty(data.observacao) ? data.observacao : '';
+    data.data = !isEmpty(data.data) ? data.data : '';
+    data.observacao = !isEmpty(data.observacao) ? data.observacao : '';
 
     if (Validator.isEmpty(data.data)) {
         errors.data = 'Campo data é obrigatório.';
@@ -14,9 +14,9 @@ module.exports = function validatefita (data) {
     if (Validator.isEmpty(data.observacao)) {
         errors.observacao = 'Campo observação é obrigatório.';
     }
-
+    
     return {
         errors,
-        isValid: isEmpty(data)
+        isValid: isEmpty(errors)
     }
 }
