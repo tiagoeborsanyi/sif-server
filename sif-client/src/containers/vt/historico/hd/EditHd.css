@@ -44,9 +44,9 @@
 
 .hd span {
     text-align: center;
-    color: green;
+    color: red;
     display: block;
-    margin-top: 110px;
+    margin: 10px 0;
 }
 
 .hd span:hover {

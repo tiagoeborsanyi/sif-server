@@ -34,7 +34,6 @@ class EditFita extends Component {
                 this.props.history.goBack();
             })
             .catch(error => {
-                console.log(error.response.data);
                 this.setState({error: error.response});
             })
     }

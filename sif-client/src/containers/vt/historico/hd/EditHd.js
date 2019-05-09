@@ -10,7 +10,8 @@ class EditHd extends Component {
             data: '',
             baia: '',
             observacao: ''
-        }
+        },
+        error: null
     }
 
     setChangeHd = (event) => {
@@ -29,7 +30,7 @@ class EditHd extends Component {
                 this.props.history.goBack();
             })
             .catch(error => {
-                console.log(error.response.data);
+                this.setState({error: error.response});
             });
     }
 
@@ -47,6 +48,7 @@ class EditHd extends Component {
                                 name="data"
                                 value={this.state.hd.data}
                                 onChange={event => this.setChangeHd(event)} />
+                            <span>{this.state.error ? this.state.error.data.data : null}</span>
                         </div>
                         <div>
                         <label>Baia trocada</label>
@@ -63,6 +65,7 @@ class EditHd extends Component {
                             <option value="7">Baia 7</option>
                             <option value="8">Baia 8</option>
                         </select>
+                        <span>{this.state.error ? this.state.error.data.baia : null}</span>
                         </div>
                         <div>
                             <label>Observação</label>
@@ -70,6 +73,7 @@ class EditHd extends Component {
                                 name="observacao"
                                 value={this.state.hd.observacao}
                                 onChange={event => this.setChangeHd(event)}></textarea>
+                            <span>{this.state.error ? this.state.error.data.observacao : null}</span>
                         </div>
                         <button onClick={this.cadastraHistHd}>Cadastrar</button>
                     </form>
