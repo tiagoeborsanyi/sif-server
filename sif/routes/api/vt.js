@@ -6,6 +6,8 @@ const passport = require('passport');
 const Vt = require('../../models/Vt');
 
 const validatevt = require('../../validation/vt');
+const validatefita = require('../../validation/fita');
+const validatehd = require('../../validation/hd');
 
 
 // @route   GET api/vt/test
@@ -94,6 +96,14 @@ router.post(
     '/fita/:id',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
+      const { errors, isValid } = validatefita(req.body);
+
+      // Check Validation
+      if (!isValid) {
+        // If any errors, send 400 with errors object
+        // console.log(errors);
+        return res.status(400).json(errors);
+      }
       const id = req.params.id;
       // console.log(req.body);
 
@@ -124,6 +134,14 @@ router.post(
   '/hd/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
+    const { errors, isValid } = validatehd(req.body);
+
+      // Check Validation
+      if (!isValid) {
+        // If any errors, send 400 with errors object
+        // console.log(errors);
+        return res.status(400).json(errors);
+      }
       const id = req.params.id;
       // console.log(req.body);
 

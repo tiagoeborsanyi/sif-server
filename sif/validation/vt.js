@@ -3,7 +3,6 @@ const isEmpty = require('./is-empty');
 
 module.exports = function validatevt(data) {
     let errors = {};
-    let update = false;
 
     data.nomevt.nomevt = !isEmpty(data.nomevt.nomevt) ? data.nomevt.nomevt : '';
     data.apelido.apelido = !isEmpty(data.apelido.apelido) ? data.apelido.apelido : '';
