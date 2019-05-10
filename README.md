@@ -3,7 +3,7 @@
 - Pastas:
     - sif-layout: contém todos o layout simples feito com css e html das paginas que contém o sistema
     - sif: pasta contendo API do projeto
-        - * Contém os arquivos Dockerfile e docker-compose para subir o projeto em produção. *
+        * Contém os arquivos Dockerfile e docker-compose para subir o projeto em produção.
     - sif/client: pasta contendo o cliente (frontEnd) do pro projeto
 
 ### Andamento do Projeto
