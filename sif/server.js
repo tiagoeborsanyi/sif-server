@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const cors = require('cors');
+// const path = require('path');
 
 const users = require('./routes/api/users');
 const vt = require('./routes/api/vt');
@@ -10,6 +11,8 @@ const vt = require('./routes/api/vt');
 const app = express();
 
 app.use('*', cors());
+
+// app.use(express.static(path.join(__dirname, 'public')));
 
 require('dotenv').config();
 
@@ -31,6 +34,10 @@ app.use(passport.initialize());
 
 // Passport Config
 require('./config/passport')(passport);
+
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname+'public/index.html'));
+// });
 
 // Use Routes
 app.use('/api/users', users);
