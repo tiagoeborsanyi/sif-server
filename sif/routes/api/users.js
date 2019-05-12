@@ -9,6 +9,7 @@ const passport = require('passport');
 // Load Input Validation
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const validateEditPass = require('../../validation/edit-pass');
 
 // Load User model
 const User = require('../../models/User');
@@ -129,18 +130,26 @@ router.get(
   }
 );
 
+// @route   GET api/users/editpass
+// @desc    Return current user
+// @access  Private
 router.post(
-  '/editpass',
+  '/editpass/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const email = req.body.email;
+    const { errors, isValid } = validateEditPass(req.body);
+    
+    // Check Validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
     const password = req.body.password;
-    const _id = req.body.id;
+    const _id = req.params.id;
     // Find user by email
-    User.findOne({ email }).then(user => {
+    User.findOne({ _id: _id }).then(user => {
       // Check for user
       if (!user) {
-        errors.email = 'User not found';
+        errors.user = 'User not found';
         return res.status(404).json(errors);
       }
       bcrypt.genSalt(10, (err, salt) => {

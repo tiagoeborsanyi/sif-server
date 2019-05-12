@@ -82,7 +82,7 @@ router.post(
         ).exec().then(vt => res.status(200).json(vt));
       } else {
         newvt.save().then(vt => res.status(200).json(vt)).catch(err => {
-          console.log(err);
+          // console.log(err);
           res.status(400).json({erro: 'erro para gravar vt'})
         });
       }
@@ -118,12 +118,12 @@ router.post(
             { _id },
             { $set: findVt }
           ).exec().then(vt => res.status(200).json(vt)).catch(err => {
-            console.log(err);
+            // console.log(err);
             res.stattus(400).json({erro: 'erro para gravar histórico de fita.'})
           });
         })
         .catch(err => {
-          console.log(err);
+          // console.log(err);
           res.status(400).json({erro: 'erro para buscar a vt.'})
         });
     }
@@ -160,7 +160,7 @@ router.post(
           ).exec().then(vt => res.status(200).json(vt));
         })
         .catch(err => {
-          // console.log(err);
+          console.log(err);
           res.status(400).json({erro: 'erro para gravar histórico de HD.'})
         });
   }

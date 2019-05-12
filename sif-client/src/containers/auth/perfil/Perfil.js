@@ -17,7 +17,6 @@ class Perfil extends Component {
         if (this.state.update === null) {
             axios.get('/api/users/current', { headers: {"Authorization" : this.props.token} })
                 .then(res => {
-                    console.log(res.data);
                     this.setState({name: res.data.name, email: res.data.email});
                 })
         }

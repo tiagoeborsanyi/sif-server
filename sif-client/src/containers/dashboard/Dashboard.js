@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSearch } from '../../store/actions/busca';
-import * as action from '../../store/actions/index';
+// import * as action from '../../store/actions/index';
 
 import classes from './Dashboard.css';
 import Item from './Item/Item';

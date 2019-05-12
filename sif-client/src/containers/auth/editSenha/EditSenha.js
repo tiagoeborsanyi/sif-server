@@ -8,9 +8,10 @@ class EditSenha extends Component {
 
     state = {
         cadastro: {
-            pass1: '',
-            pass2: ''
-        }
+            password: '',
+            password2: ''
+        },
+        error: null
     }
 
     setChangeValue = (event) => {
@@ -24,6 +25,13 @@ class EditSenha extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
+        axios.post(`api/users/editpass/${this.props.userId}`, this.state.cadastro, { headers: {"Authorization" : this.props.token} })
+            .then(res => {
+                this.props.history.goBack();
+            })
+            .catch(error => {
+                this.setState({error: error.response});
+            })
     }
 
     render () {
@@ -34,11 +42,13 @@ class EditSenha extends Component {
                     <form>
                         <div>
                             <label>Nova senha</label>
-                            <input onChange={this.setChangeValue} value={this.state.cadastro.pass1} name="pass1" type="password" placeholder="senha" />
+                            <input onChange={this.setChangeValue} value={this.state.cadastro.password} name="password" type="password" placeholder="senha" />
+                            <span>{this.state.error ? this.state.error.data.password : null}</span>
                         </div>
                         <div>
                             <label>Repita a Senha</label>
-                            <input onChange={this.setChangeValue} value={this.state.cadastro.pass2} name="pass2" type="password" placeholder="senha" />
+                            <input onChange={this.setChangeValue} value={this.state.cadastro.password2} name="password2" type="password" placeholder="senha" />
+                            <span>{this.state.error ? this.state.error.data.password2 : null}</span>
                         </div>
                         <button onClick={this.submitHandler}>Cadastrar</button>
                     </form>
