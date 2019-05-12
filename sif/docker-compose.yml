@@ -2,27 +2,9 @@ version: "3"
 
 services:
   application:
-    image: 'tiagoeborsanyi/sif'
+    image: 'tiagoeborsanyi/sif:digitalocean'
     container_name: app
     restart: always
     build: .
     ports:
-      - "5000:5000"
-    depends_on:
-      - mongodb
-    networks:
-      - webappnetwork
-  mongodb:
-    image: mongo
-    restart: always
-    container_name: mongodb
-    volumes:
-      - ./data:/data/db
-    ports:
-      - 27017:27017
-    command: mongod --noauth --smallfiles
-    networks:
-      - webappnetwork
-networks:
-  webappnetwork:
-    driver: bridge
+      - "80:5000"
