@@ -35,15 +35,14 @@ app.use(passport.initialize());
 // Passport Config
 require('./config/passport')(passport);
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname+'public/index.html'));
-});
-
-//Algo mudado que nao irá afetar em nada o arquivo - teste para merge
 
 // Use Routes
 app.use('/api/users', users);
 app.use('/api/vt', vt);
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/public/index.html'));
+});
 
 const port = process.env.PORT || 5000;
 
