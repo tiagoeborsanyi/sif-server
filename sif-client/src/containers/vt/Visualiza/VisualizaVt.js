@@ -85,6 +85,8 @@ class Viewvt extends Component {
         let tableHd = null;
         let histFita = [];
         let tableFita = null;
+        let chamadoRetiradaHds = null;
+        console.log(this.state.vt);
         if (this.state.vt.hds) {
             newHd = Object.entries(this.state.vt.hds).map((hd, index) => (
                 this.setHds(hd[1], index)
@@ -150,6 +152,19 @@ class Viewvt extends Component {
                 );
             }
         }
+
+        if (this.state.vt.chamadoassystretiradadiscos) {
+            if (this.state.vt.chamadoassystretiradadiscos.numerochamado.length > 0) {
+                console.log('retirada de discos');
+                chamadoRetiradaHds = (
+                    <div>
+                        <p>Data: {this.state.vt.chamadoassystretiradadiscos.data}</p>
+                        <p>Numero do chamado: {this.state.vt.chamadoassystretiradadiscos.numerochamado}</p>
+                        <p>Observação: {this.state.vt.chamadoassystretiradadiscos.observacao}</p>
+                    </div>
+                )
+            } 
+        }
         return (
             <div className={classes.container}>
             <div className={classes.content__botao}>
@@ -182,6 +197,11 @@ class Viewvt extends Component {
                         <ul className={classes.container_hd__unidades}>
                             {newHd}
                         </ul>
+                    </div>
+
+                    <br />
+                    <div className={classes.container_hd__historico_troca}>
+                        {chamadoRetiradaHds}
                     </div>
                     
                     <br />
