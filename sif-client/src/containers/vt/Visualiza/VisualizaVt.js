@@ -101,6 +101,7 @@ class Viewvt extends Component {
                             <td>{filterData(objHd.date)}</td>
                             <td>{objHd.baia}</td>
                             <td>{objHd.observacao}</td>
+                            <td><img className={classes.icon_delete_hist_hd} src={require('../../../assets/delete.png')} alt="deletar item hd historico"/></td>
                             </tr>
                         </tbody>
             ));
@@ -114,6 +115,7 @@ class Viewvt extends Component {
                                 <th scope="col">Data</th>
                                 <th scope="col">Numero da baia</th>
                                 <th scope="col">Observação</th>
+                                <th scope="col">Deletar</th>
                                 </tr>
                             </thead>
                             {histHd}

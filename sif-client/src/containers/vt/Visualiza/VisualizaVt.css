@@ -131,6 +131,15 @@ table {
     text-transform: uppercase;
   }
 
+  .icon_delete_hist_hd {
+    width: 15px;
+    height: 15px;
+  }
+
+  .icon_delete_hist_hd:hover {
+    cursor: pointer;
+  }
+
   .OK,
 .SMART,
 .FAULT,
