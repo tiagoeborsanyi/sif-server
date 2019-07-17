@@ -53,7 +53,7 @@ class Item extends Component {
 
     render () {
         const newHd = Object.entries(this.props.hd).map((hd, index) => (
-            this.setHds(hd[1], index)
+            this.setHds(hd[1], (index+1))
         ));
         return (
             <div>
