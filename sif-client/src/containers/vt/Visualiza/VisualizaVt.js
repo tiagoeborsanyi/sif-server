@@ -80,6 +80,23 @@ class Viewvt extends Component {
         }
     }
 
+    deleteHistHd = (id) => {
+        const ids = {
+            idVt: this.props.location.hash.slice(1),
+            idHd: id
+        }
+        axios.post(`api/vt/delete/hd/${id}`, ids, { headers: {"Authorization" : this.props.token} })
+            .then(res => {
+                console.log(res, this.state.vt.historicosituacaohd);
+                if (res.data.n === 1) {
+                    
+                }
+            })
+            .catch(error => {
+                this.setState({error: error.response});
+            });
+    }
+
     render () {
         let newHd = null;
         let histHd = [];
@@ -101,7 +118,7 @@ class Viewvt extends Component {
                             <td>{filterData(objHd.date)}</td>
                             <td>{objHd.baia}</td>
                             <td>{objHd.observacao}</td>
-                            <td><img className={classes.icon_delete_hist_hd} src={require('../../../assets/delete.png')} alt="deletar item hd historico"/></td>
+                            <td onClick={() => this.deleteHistHd(objHd._id)}><img className={classes.icon_delete_hist_hd} src={require('../../../assets/delete.png')} alt="deletar item hd historico"/></td>
                             </tr>
                         </tbody>
             ));
@@ -138,7 +155,9 @@ class Viewvt extends Component {
                 tableFita = (
                 <div>
                 <hr />
-                <div className={classes.container_unidfita__descricao_situacao}>Unidade de fita situação: <div className={classes.container_unidfita__situação}></div></div>
+                {/* <div className={classes.container_unidfita__descricao_situacao}>Unidade de fita situação: <div className={classes.container_unidfita__situação}></div></div> */}
+                <br />
+                <br />
                 <div className={classes.container_hunidfita__historico_troca}>
                     <h2>Historico de troca de Unidades de Fitas</h2>
                     <table>
@@ -216,6 +235,8 @@ class Viewvt extends Component {
                 <br />
                 {tableFita}
             </div>
+            <br />
+            <br />
             <div>
                 <h3>Observação VT</h3>
                 <p>{this.state.vt.observacaovt}</p>

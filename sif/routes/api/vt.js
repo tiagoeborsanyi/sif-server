@@ -166,6 +166,26 @@ router.post(
   }
 )
 
+// @route   POST api/vt/delete/hd/:id
+// @desc    Create Historico de troca de hd's
+// @access  Private
+router.post(
+  '/delete/hd/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Vt.update(
+      {},
+      {$pull: {historicosituacaohd: {_id: req.body.idHd}}}
+    )
+    .exec()
+    .then(vt => res.status(200).json(vt))
+    .catch(err => {
+      console.log(err);
+      res.status(400).json({erro: 'erro para gravar histórico de HD.'})
+    });
+  }
+);
+
 // @route   GET api/vt/:id
 // @desc    Get vt by id
 // @access  Private
