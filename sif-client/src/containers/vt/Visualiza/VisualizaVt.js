@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../../axios-order';
 import { connect } from 'react-redux';
+import { filterData } from '../../util/filterData';
 
 import classes from './VisualizaVt.css';
 
@@ -97,7 +98,7 @@ class Viewvt extends Component {
             histHd = arrHd.map((objHd, index) => (
                         <tbody key={index}>
                             <tr>
-                            <td>{objHd.date}</td>
+                            <td>{filterData(objHd.date)}</td>
                             <td>{objHd.baia}</td>
                             <td>{objHd.observacao}</td>
                             </tr>
