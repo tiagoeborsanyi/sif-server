@@ -11,7 +11,8 @@ class Viewvt extends Component {
     state = {
         vt: {},
         statushd: null,
-        update: true
+        update: true,
+        deleteHistHd: false
     }
 
     componentDidMount () {
@@ -22,6 +23,13 @@ class Viewvt extends Component {
                     this.setState({vt: res.data, update: false});
                 })
                 .catch(err => console.log(err));
+        }
+    }
+
+    componentDidUpdate () {
+        console.log('DidUpdate');
+        if (this.state.deleteHistHd) {
+
         }
     }
 
@@ -87,10 +95,8 @@ class Viewvt extends Component {
         }
         axios.post(`api/vt/delete/hd/${id}`, ids, { headers: {"Authorization" : this.props.token} })
             .then(res => {
-                console.log(res, this.state.vt.historicosituacaohd);
-                if (res.data.n === 1) {
-                    
-                }
+                // console.log(res, this.state.vt.historicosituacaohd);
+                this.setState({vt: res.data});
             })
             .catch(error => {
                 this.setState({error: error.response});

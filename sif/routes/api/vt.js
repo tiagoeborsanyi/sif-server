@@ -178,7 +178,14 @@ router.post(
       {$pull: {historicosituacaohd: {_id: req.body.idHd}}}
     )
     .exec()
-    .then(vt => res.status(200).json(vt))
+    .then(vt => {
+      if (vt) {
+        Vt.findById(req.body.idVt)
+        .then(findVt => {
+          res.status(200).json(findVt);
+        })
+      }
+    })
     .catch(err => {
       console.log(err);
       res.status(400).json({erro: 'erro para gravar histórico de HD.'})
